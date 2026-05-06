@@ -342,7 +342,23 @@
       fichesDiv.insertAdjacentHTML('beforeend', buildFiche(rec, i));
     });
     for(let i=0;i<RECETTES.length;i++) { recalcFiche(i); bindEvents(i); }
+    // Activer la fiche depuis l'ancre URL (#f0, #f1, etc.)
+  const hash = window.location.hash;
+  if (hash && hash.startsWith('#f')) {
+    const idx = parseInt(hash.substring(2));
+    if (!isNaN(idx) && document.getElementById('f' + idx)) {
+      document.querySelectorAll('.fiche').forEach(f => f.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('f' + idx).classList.add('active');
+      const navBtns = document.querySelectorAll('.nav-btn');
+      if (navBtns[idx]) navBtns[idx].classList.add('active');
+      document.getElementById('f' + idx).scrollIntoView({behavior:'smooth', block:'start'});
+    } else {
+      document.getElementById('f0')?.classList.add('active');
+    }
+  } else {
     document.getElementById('f0')?.classList.add('active');
+  }
   }
   loadStorage();
   buildNavAndFiches();
