@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Boulangerie – Pains de mie, seigle, pumpernickel (N°196 à N°227) | gestionresto.fr</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #fff; --bg2: #f7f6f3; --bg3: #f0efe9;
+    --border: rgba(0,0,0,0.11); --border2: rgba(0,0,0,0.20);
+    --text: #1a1a18; --text2: #6b6b67; --text3: #9a9a94;
+    --teal-bg: #E1F5EE; --teal-txt: #085041;
+    --blue-bg: #E6F1FB; --blue-txt: #0C447C;
+    --amber-bg: #FAEEDA; --amber-txt: #633806;
+    --coral-bg: #FAECE7; --coral-txt: #712B13;
+    --gray-bg: #F1EFE8; --gray-txt: #444441;
+    --red-bg: #FCEBEB; --red-txt: #A32D2D;
+    --radius: 10px; --radius-sm: 6px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1a; --bg2: #262624; --bg3: #2e2e2b;
+      --border: rgba(255,255,255,0.09); --border2: rgba(255,255,255,0.18);
+      --text: #f0efe8; --text2: #9a9a92; --text3: #6a6a64;
+      --teal-bg: #04342C; --teal-txt: #9FE1CB;
+      --blue-bg: #042C53; --blue-txt: #B5D4F4;
+      --amber-bg: #412402; --amber-txt: #FAC775;
+      --coral-bg: #4A1B0C; --coral-txt: #F0997B;
+      --gray-bg: #2C2C2A; --gray-txt: #D3D1C7;
+    }
+  }
+  body { font-family: Georgia, 'Times New Roman', serif; background: var(--bg3); color: var(--text); min-height: 100vh; }
+  .page { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .site-header { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.4rem 1.75rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; }
+  .site-header h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .site-header p { font-size: 12px; color: var(--text2); font-family: system-ui, sans-serif; }
+  .header-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; background: var(--teal-bg); color: var(--teal-txt); font-family: sans-serif; }
+  .nav-fiches { display: flex; gap: 6px; margin-bottom: 1.5rem; flex-wrap: wrap; max-height: 200px; overflow-y: auto; padding: 4px 0; }
+  .nav-btn { padding: 5px 10px; border: 0.5px solid var(--border2); border-radius: var(--radius-sm); font-size: 10px; cursor: pointer; background: var(--bg); color: var(--text2); transition: all 0.15s; font-family: sans-serif; font-weight: 500; white-space: nowrap; }
+  .nav-btn:hover { background: var(--bg2); color: var(--text); border-color: #B87C4F; }
+  .nav-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .nav-btn .nnum { font-size: 8px; opacity: 0.7; display: block; margin-bottom: 1px; }
+  .nav-btn .nname { font-weight: 700; font-size: 10px; }
+  .fiche { display: none; } .fiche.active { display: block; }
+  .fiche-header { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1.5rem; margin-bottom: 1rem; }
+  .fiche-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .fiche-source { font-size: 11px; color: var(--text2); margin-bottom: 8px; font-family: sans-serif; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 600; font-family: sans-serif; }
+  .tag-blue { background: var(--blue-bg); color: var(--blue-txt); }
+  .tag-amber { background: var(--amber-bg); color: var(--amber-txt); }
+  .tag-coral { background: var(--coral-bg); color: var(--coral-txt); }
+  .tag-teal { background: var(--teal-bg); color: var(--teal-txt); }
+  .tag-gray { background: var(--gray-bg); color: var(--gray-txt); }
+  .tag-red { background: var(--red-bg); color: var(--red-txt); }
+  .pbig { font-size: 32px; font-weight: 700; line-height: 1; }
+  .plbl { font-size: 10px; color: var(--text2); font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1rem 1.2rem; margin-bottom: 1rem; }
+  .clabel { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--text2); margin-bottom: 10px; font-family: sans-serif; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .ri { display: flex; justify-content: space-between; font-size: 12px; padding: 5px 0; border-bottom: 0.5px solid var(--border); font-family: sans-serif; }
+  .ri:last-child { border-bottom: none; }
+  .rl { color: var(--text2); } .rv { font-weight: 600; }
+  .ingr-table { width: 100%; border-collapse: collapse; font-size: 11px; font-family: sans-serif; }
+  .ingr-table th { text-align: left; color: var(--text2); font-weight: 600; padding: 4px 5px; border-bottom: 0.5px solid var(--border2); font-size: 9px; text-transform: uppercase; }
+  .ingr-table td { padding: 5px 5px; border-bottom: 0.5px solid var(--border); vertical-align: middle; }
+  .ni { width: 70px; padding: 4px 5px; border: 0.5px solid var(--border2); border-radius: var(--radius-sm); font-size: 11px; font-family: monospace; background: var(--bg); color: var(--text); text-align: right; }
+  .ni:focus { outline: none; border-color: #1D9E75; }
+  .ni.a { background: #E1F5EE; border-color: #9FE1CB; font-weight: 600; }
+  .ni.qty { background: #FAEEDA; border-color: #FAC775; font-weight: 600; }
+  .step { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
+  .snum { width: 22px; height: 22px; border-radius: 50%; background: var(--text); color: var(--bg); font-size: 9px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-family: sans-serif; }
+  .stitle { font-weight: 800; font-size: 11px; margin-bottom: 3px; font-family: sans-serif; }
+  .sdesc { font-size: 11px; color: var(--text2); line-height: 1.6; font-family: sans-serif; }
+  .nut-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .nc { background: var(--bg2); border-radius: var(--radius-sm); padding: 8px; text-align: center; }
+  .nv { font-size: 16px; font-weight: 700; }
+  .nl { font-size: 9px; color: var(--text2); margin-top: 2px; }
+  .tags-row { display: flex; flex-wrap: wrap; gap: 5px; }
+  .env-bar { height: 5px; border-radius: 4px; background: var(--border); overflow: hidden; margin: 6px 0; }
+  .env-fill { height: 100%; border-radius: 4px; }
+  .print-bar { display: flex; justify-content: flex-end; margin-bottom: 0.8rem; }
+  .btn-print { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--text); color: var(--bg); border: none; border-radius: var(--radius-sm); font-size: 11px; font-weight: 600; cursor: pointer; font-family: sans-serif; }
+  .btn-print:hover { opacity: 0.8; }
+  .footer { text-align: center; font-size: 10px; color: var(--text3); margin-top: 2rem; padding-top: 1rem; border-top: 0.5px solid var(--border); font-family: sans-serif; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } .nut-grid { grid-template-columns: repeat(2, 1fr); } .page { padding: 1rem; } .fiche-title { font-size: 1.3rem; } }
+  @media print {
+    @page { size: A4 portrait; margin: 12mm 14mm; }
+    .nav-fiches, .print-bar, .site-header, .footer { display: none !important; }
+    .fiche { display: none !important; } .fiche.active { display: block !important; }
+    body { background: white; font-size: 9pt; } .page { max-width: 100%; padding: 0; }
+    .card { border: 0.5pt solid #ccc; padding: 6pt; margin-bottom: 5pt; break-inside: avoid; }
+    .ni { border: none; background: transparent; font-size: 8pt; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="site-header">
+  <div>
+    <h1>La Boulangerie d'aujourd'hui – Urbain Dubois</h1>
+    <p>Pains de mie, pains de seigle, pumpernickel · N°196 à N°227</p>
+  </div>
+  <div class="header-badge">gestionresto.fr · 23 recettes · p.163–170</div>
+</div>
+<div class="nav-fiches" id="nav"></div>
+<div id="fiches"></div>
+<div class="footer">© gestionresto.fr — Données personnalisables, sauvegarde automatique — d'après "La Boulangerie d'aujourd'hui" d'Urbain Dubois</div>
+</div>
+
+<script>
+(function() {
+  if (!window.storage) {
+    window.storage = {
+      async get(key) { const val = localStorage.getItem(key); return val ? { value: val } : null; },
+      async set(key, value) { localStorage.setItem(key, value); }
+    };
+  }
+  const STORAGE_KEY = 'gr_boulangerie_lot5_v1';
+
+  const RECETTES = [
+    { num:"N°196", nom:"Pain de mie qualité supérieure", sousTitre:"Au lait et beurre", page:163, diff:"Difficile", categorie:"Pain de mie", portions:8, tprep:"30 min + 2h", tcuisson:"35 min", tmontage:"20 min",
+      nut:{kcal:280,prot:8,lip:10,glu:48}, co2:"0.58 kg", eau:"150 L", env:38, envlbl:"Élevé", envcol:"#E24B4A",
+      allerg:["Gluten","Beurre","Lait"], presentation:"Pain de mie très fin, idéal pour toasts.",
+      ingredients:[{n:"Lait nature",qte:1,u:"L",pa:0.80,qr:1000},{n:"Sel",qte:35,u:"g",pa:0.80,qr:1000},{n:"Levure",qte:15,u:"g",pa:2.20,qr:1000},{n:"Beurre",qte:150,u:"g",pa:6.50,qr:1000},{n:"Farine de gruaux",qte:1500,u:"g",pa:1.20,qr:1000}],
+      steps:["Faire un levain avec 1/4 de la farine, le lait et la levure.","Sur le tour, mettre le reste de farine en couronne, le lait et le sel. Assembler, donner du corps, incorporer le beurre manié.","Étaler le levain sur la pâte, couper jusqu'à disparition. Laisser lever 2 fois.","Tourner serré, mettre en moule, four doux."],
+      equip:["Moules à couvercle","Tour","Linges"]},
+    { num:"N°197", nom:"Pains de mie aux raisins", sousTitre:"Corinthe", page:163, diff:"Moyen", categorie:"Pain de mie", portions:8, tprep:"25 min + 2h30", tcuisson:"35 min", tmontage:"15 min",
+      nut:{kcal:310,prot:7,lip:9,glu:55}, co2:"0.6", eau:"155", env:40, envlbl:"Élevé", envcol:"#E24B4A",
+      allerg:["Gluten","Beurre","Lait","Raisins"], presentation:"Pain de mie aux raisins, pousse plus longue.",
+      ingredients:[{n:"Pâte à pain de mie N°196",qte:1000,u:"g",pa:0.90,qr:1000},{n:"Raisins de Corinthe",qte:100,u:"g",pa:3.50,qr:1000}],
+      steps:["Ajouter les raisins à la pâte presque terminée.","Laisser pousser plus longtemps que le pain de mie nature. Procéder comme N°196.","Nettoyer soigneusement les moules après cuisson."],
+      equip:["Moules à couvercle"]},
+    { num:"N°198", nom:"Pain de mie de seigle", sousTitre:"Voir N°218", page:163, diff:"Moyen", categorie:"Pain de seigle", portions:8, tprep:"20 min + 4h", tcuisson:"40 min", tmontage:"15 min",
+      nut:{kcal:240,prot:6,lip:1.5,glu:48}, co2:"0.5", eau:"130", env:32, envlbl:"Modéré", envcol:"#EF9F27",
+      allerg:["Gluten","Seigle"], presentation:"Pain de mie au seigle, recette similaire au N°218.",
+      ingredients:[{n:"Farine de seigle",qte:800,u:"g",pa:1.00,qr:1000},{n:"Farine de gruaux",qte:400,u:"g",pa:1.20,qr:1000},{n:"Eau",qte:700,u:"ml",pa:0.001,qr:1},{n:"Sel",qte:20,u:"g",pa:0.80,qr:1000},{n:"Levure",qte:20,u:"g",pa:2.20,qr:1000}],
+      steps:["Pétrir tous ingrédients, pâte ferme. Laisser lever 2h, donner un tour.","Laisser lever à nouveau, tourner serré, mettre en moule. Cuire à four doux."],
+      equip:["Moule à pain","Pétrin"]},
+    { num:"N°199", nom:"Pain de mie à huîtres", sousTitre:"Voir N°218", page:163, diff:"Moyen", categorie:"Pain spécial", portions:8, tprep:"20 min + 3h", tcuisson:"30 min", tmontage:"15 min",
+      nut:{kcal:235,prot:6.5,lip:1,glu:47}, co2:"0.48", eau:"125", env:30, envlbl:"Faible", envcol:"#1D9E75",
+      allerg:["Gluten","Seigle"], presentation:"Petits pains de 400g, cuits sans couvercle.",
+      ingredients:[{n:"Farine de seigle",qte:600,u:"g",pa:1.00,qr:1000},{n:"Farine de gruaux",qte:300,u:"g",pa:1.20,qr:1000},{n:"Eau",qte:600,u:"ml",pa:0.001,qr:1},{n:"Sel",qte:15,u:"g",pa:0.80,qr:1000},{n:"Levure",qte:15,u:"g",pa:2.20,qr:1000}],
+      steps:["Pétrir, laisser lever, tourner en pâtons de 400g.","Mettre en petits moules rectangulaires ouverts, laisser pousser presque à raz.","Cuire à four moyen avec buée, mouiller à la brosse en sortant."],
+      equip:["Petits moules","Brosse"]},
+    { num:"N°200", nom:"Pain de mie à huîtres au son", sousTitre:"Voir N°220", page:163, diff:"Moyen", categorie:"Pain spécial", portions:8, tprep:"20 min + 3h", tcuisson:"30 min", tmontage:"15 min",
+      nut:{kcal:220,prot:6,lip:1,glu:44}, co2:"0.46", eau:"120", env:28, envlbl:"Faible", envcol:"#1D9E75",
+      allerg:["Gluten","Seigle"], presentation:"Pain au son, très sain.",
+      ingredients:[{n:"Son",qte:200,u:"g",pa:0.50,qr:1000},{n:"Farine de seigle",qte:600,u:"g",pa:1.00,qr:1000},{n:"Eau",qte:700,u:"ml",pa:0.001,qr:1},{n:"Sel",qte:15,u:"g",pa:0.80,qr:1000},{n:"Levure",qte:20,u:"g",pa:2.20,qr:1000}],
+      steps:["Mélanger son et farine. Pétrir, laisser lever.","Tourner en pâtons de 400g, moules ouverts. Cuire à four moyen avec buée."],
+      equip:["Moules"]},
+    { num:"N°204", nom:"Pains de mie spéciaux pour toasts", sousTitre:"2,1kg de pâte par moule", page:163, diff:"Moyen", categorie:"Pain de mie", portions:10, tprep:"20 min + 2h", tcuisson:"35 min", tmontage:"15 min",
+      nut:{kcal:260,prot:7,lip:5,glu:49}, co2:"0.52", eau:"135", env:34, envlbl:"Modéré", envcol:"#EF9F27",
+      allerg:["Gluten","Beurre","Lait"], presentation:"Pour toasts, moules rectangulaires ou cylindriques.",
+      ingredients:[{n:"Lait",qte:0.75,u:"L",pa:0.80,qr:1000},{n:"Beurre fondu",qte:50,u:"g",pa:6.50,qr:1000},{n:"Levure",qte:50,u:"g",pa:2.20,qr:1000},{n:"Sel",qte:20,u:"g",pa:0.80,qr:1000},{n:"Sucre",qte:25,u:"g",pa:1.20,qr:1000},{n:"Farine ( moitié ordinaire, moitié gruaux)",qte:1200,u:"g",pa:1.05,qr:1000}],
+      steps:["Travail direct : pétrir tous ingrédients, laisser lever.","Remplir à moitié les moules à couvercle, laisser lever aux 3/4. Cuire moules fermés, four doux."],
+      equip:["Moules à couvercle"]},
+    { num:"N°202", nom:"Autre recette pour toasts", sousTitre:"Pâte d'apprêt rapide", page:164, diff:"Facile", categorie:"Pain de mie", portions:8, tprep:"15 min + 1h", tcuisson:"30 min", tmontage:"10 min",
+      nut:{kcal:255,prot:7,lip:4,glu:48}, co2:"0.5", eau:"130", env:32, envlbl:"Modéré", envcol:"#EF9F27",
+      allerg:["Gluten","Œufs","Lait"], presentation:"À base de pâte à pain levée.",
+      ingredients:[{n:"Lait",qte:0.25,u:"L",pa:0.80,qr:1000},{n:"Sucre",qte:50,u:"g",pa:1.20,qr:1000},{n:"Pâte à pain levée",qte:1000,u:"g",pa:0.50,qr:1000},{n:"Œufs",qte:2,u:"pcs",pa:2.40,qr:20},{n:"Farine de gruaux",qte:300,u:"g",pa:1.20,qr:1000}],
+      steps:["Ramollir la pâte à pain avec le lait, ajouter sucre, œufs, farine. Pétrir, reposer.","Mettre en petits moules à couvercle, laisser lever aux 3/4, cuire."],
+      equip:["Moules à couvercle"]},
+    { num:"N°203", nom:"Pain à toasts en pâte à russes", sousTitre:"Cylindrique", page:164, diff:"Moyen", categorie:"Pain de mie", portions:8, tprep:"20 min + 2h", tcuisson:"20-25 min", tmontage:"15 min",
+      nut:{kcal:260,prot:7,lip:5,glu:49}, co2:"0.52", eau:"135", env:34, envlbl:"Modéré", envcol:"#EF9F27",
+      allerg:["Gluten"], presentation:"Pains cylindriques, pesés à 350g.",
+      ingredients:[{n:"Pâte à russes (N°577)",qte:2800,u:"g",pa:0.80,qr:1000}],
+      steps:["Garnir des moules cylindriques graissés avec 350g de pâte. Laisser bien lever, fermer les moules.","Cuire 20-25 min, démouler à la sortie du four."],
+      equip:["Moules cylindriques"]},
+    { num:"N°204bis", nom:"Pain brioché ordinaire (à toasts)", sousTitre:"Pâte à brioche", page:164, diff:"Moyen", categorie:"Pain brioché", portions:10, tprep:"20 min + 2h", tcuisson:"25 min", tmontage:"15 min",
+      nut:{kcal:290,prot:7,lip:10,glu:48}, co2:"0.55", eau:"140", env:36, envlbl:"Modéré", envcol:"#EF9F27",
+      allerg:["Gluten","Œufs","Beurre","Lait"], presentation:"Au lait et margarine, colorant jaune.",
+      ingredients:[{n:"Eau",qte:1,u:"L",pa:0.001,qr:1},{n:"Sucre",qte:75,u:"g",pa:1.20,qr:1000},{n:"Levure",qte:80,u:"g",pa:2.20,qr:1000},{n:"Margarine/beurre-blanc",qte:100,u:"g",pa:5.00,qr:1000},{n:"Sel",qte:30,u:"g",pa:0.80,qr:1000},{n:"Œuf",qte:1,u:"pce",pa:0.30,qr:1},{n:"Lait poudre",qte:50,u:"g",pa:3.00,qr:1000},{n:"Colorant jaune",qte:3,u:"g",pa:0.10,qr:1000},{n:"Farine de gruaux",qte:1400,u:"g",pa:1.20,qr:1000}],
+      steps:["Délayer levure dans 1/2L eau. Mélanger les deux liquides, ajouter margarine, farine. Pâte pas trop ferme.","Pousser 1h, donner un tour, pousser 1h, détailler.","Garnir moules à demi, laisser lever à hauteur, four moyen avec buée."],
+      equip:["Moules rectangulaires ou carrés"]},
+    { num:"N°205", nom:"Pain brioché supérieur", sousTitre:"Au lait et œufs", page:165, diff:"Difficile", categorie:"Pain brioché", portions:10, tprep:"25 min + 2h", tcuisson:"25 min", tmontage:"20 min",
+      nut:{kcal:310,prot:8,lip:14,glu:49}, co2:"0.6", eau:"150", env:40, envlbl:"Élevé", envcol:"#E24B4A",
+      allerg:["Gluten","Œufs","Beurre","Lait"], presentation:"Pâte riche, se prête aussi aux pains-chocolat.",
+      ingredients:[{n:"Lait nature",qte:1,u:"L",pa:0.80,qr:1000},{n:"Sucre",qte:100,u:"g",pa:1.20,qr:1000},{n:"Levure",qte:80,u:"g",pa:2.20,qr:1000},{n:"Beurre",qte:100,u:"g",pa:6.50,qr:1000},{n:"Sel",qte:30,u:"g",pa:0.80,qr:1000},{n:"Œufs",qte:3,u:"pcs",pa:2.40,qr:20},{n:"Farine de gruaux",qte:1500,u:"g",pa:1.20,qr:1000}],
+      steps:["Même conduite que le pain brioché ordinaire mais avec meilleurs ingrédients."],
+      equip:["Moules"]},
+    { num:"N°206", nom:"Cramique", sousTitre:"Aux raisins", page:165, diff:"Moyen", categorie:"Viennoiserie", portions:8, tprep:"20 min + 2h", tcuisson:"25 min", tmontage:"15 min",
+      nut:{kcal:320,prot:7,lip:10,glu:55}, co2:"0.58", eau:"145", env:37, envlbl:"Modéré", envcol:"#EF9F27",
+      allerg:["Gluten","Œufs","Beurre"], presentation:"Moules ronds, dorés, incisés en croix.",
+      ingredients:[{n:"Pâte à pain brioché",qte:1000,u:"g",pa:0.90,qr:1000},{n:"Raisins de Californie",qte:150,u:"g",pa:4.00,qr:1000}],
+      steps:["Incorporer les raisins à la pâte. Garnir des moules à manqué, laisser lever, dorer, donner 2 coups de ciseaux en croix. Cuire."],
+      equip:["Moules ronds","Ciseaux"]},
+    { num:"N°207", nom:"Cramique belge", sousTitre:"Riche en beurre et œufs", page:165, diff:"Difficile", categorie:"Viennoiserie", portions:8, tprep:"40 min + 2h", tcuisson:"25 min", tmontage:"20 min",
+      nut:{kcal:350,prot:8,lip:18,glu:52}, co2:"0.7", eau:"170", env:45, envlbl:"Élevé", envcol:"#E24B4A",
+      allerg:["Gluten","Œufs","Beurre","Lait"], presentation:"Cramique parfumée à la cannelle.",
+      ingredients:[{n:"Lait",qte:0.25,u:"L",pa:0.80,qr:1000},{n:"Raisins Malaga",qte:250,u:"g",pa:4.50,qr:1000},{n:"Œufs",qte:10,u:"pcs",pa:2.40,qr:20},{n:"Sucre",qte:100,u:"g",pa:1.20,qr:1000},{n:"Levure",qte:40,u:"g",pa:2.20,qr:1000},{n:"Sel",qte:20,u:"g",pa:0.80,qr:1000},{n:"Cannelle",qte:4,u:"g",pa:3.00,qr:1000},{n:"Beurre",qte:400,u:"g",pa:6.50,qr:1000},{n:"Farine de gruaux",qte:1000,u:"g",pa:1.20,qr:1000}],
+      steps:["Levain avec 250g farine+levure+eau tiède.","Fontaine avec 750g farine, sel, œufs, lait, pâte corsée. Incorporer levain, laisser lever 30 min.","Ajouter beurre, sucre, cannelle, raisins. Laisser lever 1h. Mouler, garnir moules, dorer, inciser en croix, four moyen."],
+      equip:["Moules à manqué","Ciseaux"]},
+    { num:"N°245", nom:"Pain de seigle ordinaire", sousTitre:"400g/700g", page:166, diff:"Moyen", categorie:"Pain de seigle", portions:8, tprep:"25 min + 2h30", tcuisson:"45 min", tmontage:"20 min",
+      nut:{kcal:230,prot:6,lip:1,glu:47}, co2:"0.48", eau:"125", env:30, envlbl:"Faible", envcol:"#1D9E75",
+      allerg:["Gluten","Seigle"], presentation:"Cuisson longue, consommer 24h après.",
+      ingredients:[{n:"Eau",qte:1,u:"L",pa:0.001,qr:1},{n:"Pâte à pain blanc levée",qte:1000,u:"g",pa:0.50,qr:1000},{n:"Levure",qte:30,u:"g",pa:2.20,qr:1000},{n:"Sel",qte:97,u:"g",pa:0.80,qr:1000},{n:"Farine de seigle",qte:1800,u:"g",pa:1.00,qr:1000}],
+      steps:["Fontaine: farine seigle, sel, eau+levure moussante, ajouter pâte blanche. Pétrir pâte ferme.","Reposer 2h, donner tour, reposer 30 min. Tourner serré, banneton, four moyen avec buée, cuisson lente.","Dorer à l'eau en sortant."],
+      equip:["Banneton","Brosse"]},
+    { num:"N°246", nom:"Galettes de seigle farinées", sousTitre:"Quadrillées", page:166, diff:"Moyen", categorie:"Pain de seigle", portions:8, tprep:"20 min + 2h", tcuisson:"30 min", tmontage:"15 min",
+      nut:{kcal:225,prot:6,lip:1,glu:46}, co2:"0.47", eau:"122", env:30, envlbl:"Faible", envcol:"#1D9E75",
+      allerg:["Gluten","Seigle"], presentation:"Pâtons aplatis, quadrillage à la lame.",
+      ingredients:[{n:"Pâte à pain de seigle ordinaire",qte:1000,u:"g",pa:0.70,qr:1000}],
+      steps:["Mouler des pâtons de 400 ou 700g. Aplatir légèrement, moulure en dessus sur couche farinée.","Laisser pousser, quadriller à la lame avant enfournement."],
+      equip:["Lame"]},
+    { num:"N°247", nom:"Benoitons", sousTitre:"Aux raisins", page:166, diff:"Moyen", categorie:"Pain de seigle", portions:15, tprep:"20 min + 2h", tcuisson:"20 min", tmontage:"15 min",
+      nut:{kcal:270,prot:6,lip:1.5,glu:52}, co2:"0.5", eau:"130", env:32, envlbl:"Modéré", envcol:"#EF9F27",
+      allerg:["Gluten","Seigle","Raisins"], presentation:"Petits pains ronds de 70g, incisés en croix.",
+      ingredients:[{n:"Pâte à pain de seigle ordinaire",qte:1000,u:"g",pa:0.70,qr:1000},{n:"Raisins de Corinthe",qte:300,u:"g",pa:3.50,qr:1000}],
+      steps:["Incorporer les raisins à la pâte. Tourner des petits pains de 70g.","Dresser moulure en dessus, laisser pousser. Retourner avant cuisson, inciser en croix à la lame. Four moyen avec buée."],
+      equip:["Lame"]},
+    { num:"N°248", nom:"Pain de seigle russe", sousTitre:"Au caramel", page:167, diff:"Difficile", categorie:"Pain de seigle", portions:8, tprep:"30 min + 5h", tcuisson:"50 min", tmontage:"20 min",
+      nut:{kcal:235,prot:6.5,lip:1,glu:48}, co2:"0.5", eau:"128", env:32, envlbl:"Modéré", envcol:"#EF9F27",
+      allerg:["Gluten","Seigle"], presentation:"Seigle noir, coloré au caramel.",
+      ingredients:[{n:"Eau",qte:1,u:"L",pa:0.001,qr:1},{n:"Pâte blanche levée",qte:1000,u:"g",pa:0.50,qr:1000},{n:"Levure",qte:40,u:"g",pa:2.20,qr:1000},{n:"Farine de seigle russe (noir)",qte:1800,u:"g",pa:1.10,qr:1000},{n:"Sel",qte:25,u:"g",pa:0.80,qr:1000},{n:"Caramel liquide",qte:15,u:"ml",pa:2.00,qr:1000}],
+      steps:["Même travail que N°245, ajouter caramel en boulangeant.","Tourner rond ou long, banneton ou couche. Pousse lente, cuisson plus longue que pain de seigle ordinaire. Mouiller à la brosse en sortant."],
+      equip:["Banneton","Brosse"]},
+    { num:"N°219", nom:"Pain de mie à huîtres, seigle et son", sousTitre:"Petits pains", page:168, diff:"Moyen", categorie:"Pain spécial", portions:8, tprep:"25 min + 2h", tcuisson:"25 min", tmontage:"15 min",
+      nut:{kcal:215,prot:6,lip:1,glu:43}, co2:"0.44", eau:"115", env:28, envlbl:"Faible", envcol:"#1D9E75",
+      allerg:["Gluten","Seigle"], presentation:"Pâte avec son, mouillés en sortie.",
+      ingredients:[{n:"Eau",qte:0.75,u:"L",pa:0.001,qr:1},{n:"Sel",qte:15,u:"g",pa:0.80,qr:1000},{n:"Levure",qte:50,u:"g",pa:2.20,qr:1000},{n:"Pâte à pain blanc",qte:1000,u:"g",pa:0.50,qr:1000},{n:"Son",qte:200,u:"g",pa:0.50,qr:1000},{n:"Farine de seigle noir",qte:600,u:"g",pa:1.10,qr:1000}],
+      steps:["Mouiller le son à l'eau chaude (40°C). Mélanger son et farine seigle, ajouter eau+levure, pâte bâtarde. Incorporer pâte blanche, travailler.","Laisser pousser, garnir petits moules ouverts à 400g. Laisser lever, cuire à four moyen, mouiller à la brosse en sortant."],
+      equip:["Petits moules","Brosse"]},
+    { num:"N°220", nom:"Pain de seigle noir en travail direct", sousTitre:"Sans levain", page:168, diff:"Moyen", categorie:"Pain de seigle", portions:8, tprep:"15 min + 4h", tcuisson:"45 min", tmontage:"15 min",
+      nut:{kcal:230,prot:6,lip:1,glu:47}, co2:"0.48", eau:"125", env:31, envlbl:"Modéré", envcol:"#EF9F27",
+      allerg:["Gluten","Seigle"], presentation:"Mélange gruaux (1/3) et seigle noir (2/3).",
+      ingredients:[{n:"Eau",qte:1,u:"L",pa:0.001,qr:1},{n:"Sel",qte:27,u:"g",pa:0.80,qr:1000},{n:"Levure",qte:50,u:"g",pa:2.20,qr:1000},{n:"Farine gruaux",qte:600,u:"g",pa:1.20,qr:1000},{n:"Farine seigle noir",qte:1200,u:"g",pa:1.10,qr:1000}],
+      steps:["Tamiser ensemble farines. Fontaine: sel, délayer levure à l'eau. Pétrir pâte ferme.","Laisser lever 1h, donner un tour, pousser 3h, tourner. Cuisson lente."],
+      equip:["Pétrin"]},
+    { num:"N°223", nom:"Pain sec suédois (à la glace)", sousTitre:"Sans levure", page:169, diff:"Expert", categorie:"Biscuit/craquelin", portions:12, tprep:"30 min + séchage", tcuisson:"étuvage", tmontage:"30 min",
+      nut:{kcal:210,prot:5,lip:1,glu:46}, co2:"0.4", eau:"100", env:25, envlbl:"Faible", envcol:"#1D9E75",
+      allerg:["Gluten","Seigle"], presentation:"Galettes très minces, croustillantes, au cumin option.",
+      ingredients:[{n:"Glace pilée",qte:35,u:"kg",pa:0.01,qr:1},{n:"Sel",qte:200,u:"g",pa:0.80,qr:1000},{n:"Farine de seigle spéciale",qte:50,u:"kg",pa:1.20,qr:1000},{n:"Cumin écrasé",qte:100,u:"g",pa:2.00,qr:1000}],
+      steps:["Pétrin: glace, farine, sel, cumin. Battre pour incorporer beaucoup d'air, pâte très molle.","Laminer en plaques minces, perforer, découper en rondelles de 30cm (trou central 5cm).","Sécher légèrement, cuire sur plaque roulante, puis étuve 40-50°C jusqu'à séchage complet.","Découper à la scie à ruban en rectangles 11x6cm."],
+      equip:["Laminoir","Rouleau à picots","Étuve","Scie à ruban"]},
+    { num:"N°224", nom:"Pain sec suédois sur levure", sousTitre:"Couleur brune", page:170, diff:"Difficile", categorie:"Biscuit", portions:20, tprep:"30 min + 2h", tcuisson:"étuvage", tmontage:"30 min",
+      nut:{kcal:215,prot:5.5,lip:1,glu:47}, co2:"0.42", eau:"110", env:27, envlbl:"Faible", envcol:"#1D9E75",
+      allerg:["Gluten","Seigle"], presentation:"Rondelles découpées en éventail.",
+      ingredients:[{n:"Eau",qte:110,u:"L",pa:0.001,qr:1},{n:"Sel",qte:500,u:"g",pa:0.80,qr:1000},{n:"Levure",qte:1500,u:"g",pa:2.20,qr:1000},{n:"Farine seigle blutée",qte:116,u:"kg",pa:1.00,qr:1000},{n:"Farine seigle spéciale",qte:29,u:"kg",pa:1.20,qr:1000},{n:"Cumin",qte:200,u:"g",pa:2.00,qr:1000}],
+      steps:["Pétrir avec farine blutée, laisser lever. Incorporer farine spéciale pendant la tourne.","Aplatir en rondelles, cuire, étuver, puis découper diamétralement en 8 morceaux (éventails)."],
+      equip:["Laminoir","Étuve"]},
+    { num:"N°225", nom:"Pain sec suédois (orge, froment, seigle)", sousTitre:"Sans levure", page:170, diff:"Moyen", categorie:"Biscuit", portions:15, tprep:"30 min + repos", tcuisson:"10-15 min", tmontage:"20 min",
+      nut:{kcal:220,prot:6,lip:1,glu:48}, co2:"0.44", eau:"115", env:28, envlbl:"Faible", envcol:"#1D9E75",
+      allerg:["Gluten","Orge","Froment"], presentation:"Galettes très minces, piquées.",
+      ingredients:[{n:"Eau",qte:3,u:"L",pa:0.001,qr:1},{n:"Farine de froment",qte:1000,u:"g",pa:0.90,qr:1000},{n:"Farine d'orge blutée",qte:1500,u:"g",pa:1.00,qr:1000},{n:"Sel",qte:30,u:"g",pa:0.80,qr:1000},{n:"Farine de seigle blutée",qte:2500,u:"g",pa:1.00,qr:1000}],
+      steps:["Mélanger les farines, ajouter eau et sel. Pétrir, puis abaisser en très grandes rondelles minces, picoter.","Laisser reposer, retourner, enfourner sur sole, flamme passant sur les galettes (four de campagne)."],
+      equip:["Rouleau","Pique","Pelle ronde"]},
+    { num:"N°226", nom:"Pumpernickel (Westphalie)", sousTitre:"Pain noir sans sel", page:171, diff:"Expert", categorie:"Pain de seigle", portions:20, tprep:"40 min + 12h", tcuisson:"12-14h", tmontage:"30 min",
+      nut:{kcal:210,prot:5,lip:1,glu:44}, co2:"0.45", eau:"110", env:28, envlbl:"Faible", envcol:"#1D9E75",
+      allerg:["Gluten","Seigle"], presentation:"Mie chocolat, très serré. Se garde longtemps.",
+      ingredients:[{n:"Farine de seigle noir complète",qte:10000,u:"g",pa:1.00,qr:1000},{n:"Vieux levain",qte:500,u:"g",pa:0.30,qr:1000},{n:"Eau",qte:3000,u:"ml",pa:0.001,qr:1}],
+      steps:["La veille, faire une pâte avec 2/3 de la farine, le vieux levain et l'eau.","Le lendemain, incorporer le 1/3 restant de farine. Pâte très ferme, travailler avec force.","Laisser lever 2h au chaud. Couper en morceaux rectangulaires, mettre en moules spéciaux.","Cuire 12-14h au four bien chauffé. Pains jusqu'à 30kg."],
+      equip:["Moules spéciaux","Pétrin puissant"]},
+    { num:"N°227", nom:"Pumpernickel fantaisie", sousTitre:"Pain d'épice", page:171, diff:"Difficile", categorie:"Pain d'épice", portions:12, tprep:"30 min + 7 jours", tcuisson:"15 min", tmontage:"20 min",
+      nut:{kcal:280,prot:5,lip:2,glu:60}, co2:"0.5", eau:"120", env:30, envlbl:"Modéré", envcol:"#EF9F27",
+      allerg:["Gluten","Seigle","Œufs","Miel"], presentation:"Biscuit-pain d'épice, glacé au blanc d'œuf.",
+      ingredients:[{n:"Farine de seigle noir",qte:500,u:"g",pa:1.00,qr:1000},{n:"Farine de blé",qte:500,u:"g",pa:0.90,qr:1000},{n:"Miel ou mélasse",qte:500,u:"g",pa:4.00,qr:1000},{n:"Piment, girofle",qte:5,u:"g",pa:3.00,qr:1000},{n:"Zeste citron",qte:1,u:"pce",pa:0.30,qr:1},{n:"Carbonate ammoniaque",qte:20,u:"g",pa:2.00,qr:1000},{n:"Potasse perlasse",qte:10,u:"g",pa:1.50,qr:1000},{n:"Œufs",qte:3,u:"pcs",pa:2.40,qr:20}],
+      steps:["Mélanger farines, miel, épices, zeste. Laisser reposer 6 jours au frais.","Incorporer carbonate, potasse, œufs, un peu de farine. Laisser reposer 1 jour.","Abaisser finement (1/3 cm), découper, cuire à four chaud. Glaçage: blancs d'œufs+300g sucre glace+100g farine riz. Étaler après cuisson, laisser sécher."],
+      equip:["Rouleau","Emporte-pièce","Plaque"]}
+  ];
+
+  let dynamicData = [];
+
+  function initDynamic() {
+    return RECETTES.map(r => ({
+      portions: r.portions,
+      coeff: 3.5,
+      ingredients: r.ingredients.map(ing => ({ pa: ing.pa, qte: ing.qte }))
+    }));
+  }
+
+  function loadStorage() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length === RECETTES.length) {
+          dynamicData = parsed;
+          for (let i = 0; i < RECETTES.length; i++) {
+            if (dynamicData[i].portions) RECETTES[i].portions = dynamicData[i].portions;
+            if (dynamicData[i].coeff !== undefined) dynamicData[i].coeff = dynamicData[i].coeff;
+            const dynIngs = dynamicData[i].ingredients;
+            if (dynIngs && dynIngs.length === RECETTES[i].ingredients.length) {
+              for (let j = 0; j < RECETTES[i].ingredients.length; j++) {
+                if (dynIngs[j].pa !== undefined) RECETTES[i].ingredients[j].pa = dynIngs[j].pa;
+                if (dynIngs[j].qte !== undefined) RECETTES[i].ingredients[j].qte = dynIngs[j].qte;
+              }
+            }
+          }
+        } else dynamicData = initDynamic();
+      } else dynamicData = initDynamic();
+    } catch(e) { dynamicData = initDynamic(); }
+  }
+  function saveDynamic() {
+    const toStore = dynamicData.map((d, idx) => ({
+      portions: RECETTES[idx].portions,
+      coeff: d.coeff,
+      ingredients: RECETTES[idx].ingredients.map(ing => ({ pa: ing.pa, qte: ing.qte }))
+    }));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(toStore));
+  }
+  function getPU(ing) { return ing.pa / ing.qr; }
+  function getCout(ing) { return ing.qte * getPU(ing); }
+  function recalcFiche(idx) {
+    const rec = RECETTES[idx];
+    const total = rec.ingredients.reduce((s, ing) => s + getCout(ing), 0);
+    const portions = rec.portions;
+    const costPerPortion = total / portions;
+    const coeff = dynamicData[idx].coeff;
+    const pv = costPerPortion * coeff;
+    const marge = pv > 0 ? ((pv - costPerPortion) / pv) * 100 : 0;
+    document.getElementById(`ct-${idx}`).innerText = total.toFixed(2) + ' €';
+    document.getElementById(`cp-${idx}`).innerText = costPerPortion.toFixed(2) + ' €';
+    document.getElementById(`cv-${idx}`).innerText = pv.toFixed(2) + ' € HT';
+    document.getElementById(`cm-${idx}`).innerText = marge.toFixed(1) + '%';
+    const bar = document.getElementById(`mb-${idx}`);
+    if (bar) bar.style.width = Math.min(100, Math.max(0, marge)) + '%';
+    document.getElementById(`pd-${idx}`).innerText = rec.portions;
+    rec.ingredients.forEach((ing, ipos) => {
+      const puSpan = document.getElementById(`pu-${idx}-${ipos}`);
+      if (puSpan) puSpan.innerText = getPU(ing).toFixed(4) + ' €';
+      const coSpan = document.getElementById(`co-${idx}-${ipos}`);
+      if (coSpan) coSpan.innerText = getCout(ing).toFixed(2) + ' €';
+      const qtyInp = document.getElementById(`qty-${idx}-${ipos}`);
+      if (qtyInp && qtyInp.value != ing.qte) qtyInp.value = ing.qte;
+    });
+  }
+  function escapeHtml(str) { return String(str).replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
+  function buildFiche(rec, idx) {
+    let diffClass = 'tag-teal';
+    if (rec.diff === 'Expert') diffClass = 'tag-coral';
+    else if (rec.diff === 'Difficile') diffClass = 'tag-amber';
+    else if (rec.diff === 'Très difficile') diffClass = 'tag-red';
+    else if (rec.diff === 'Facile') diffClass = 'tag-blue';
+    const ingRows = rec.ingredients.map((ing, i) => `
+      <tr>
+        <td style="font-weight:600">${escapeHtml(ing.n)}</td>
+        <td style="padding:3px;"><input type="number" class="ni qty" data-idx="${idx}" data-pos="${i}" value="${ing.qte}" step="any" style="width:75px;"></td>
+        <td>${ing.u}</td>
+        <td class="td-a"><input type="number" class="ni a" data-idx="${idx}" data-pos="${i}" value="${ing.pa.toFixed(2)}" step="0.01" min="0" style="width:70px;"></td>
+        <td id="pu-${idx}-${i}" style="text-align:right;">${getPU(ing).toFixed(4)} €</td>
+        <td id="co-${idx}-${i}" style="text-align:right;font-weight:600;">${getCout(ing).toFixed(2)} €</td>
+      </tr>
+    `).join('');
+    const stepsHtml = rec.steps.map((s,i) => `<div class="step"><div class="snum">${i+1}</div><div><div class="stitle">${escapeHtml(s)}</div></div></div>`).join('');
+    const allergHtml = rec.allerg.map(a => `<span class="tag tag-red">⚠ ${escapeHtml(a)}</span>`).join('');
+    const equipHtml = rec.equip.map(e => `<span class="tag tag-gray">${escapeHtml(e)}</span>`).join('');
+    return `
+      <div class="fiche" id="f${idx}">
+        <div class="print-bar"><button class="btn-print" onclick="window.print()">🖨 Imprimer PDF</button></div>
+        <div class="fiche-header"><div style="display:flex; justify-content:space-between;"><div><div class="fiche-title">${rec.num} — ${escapeHtml(rec.nom)}</div><div class="fiche-source">p.${rec.page} · ${rec.sousTitre}</div><div class="tags"><span class="tag tag-blue">Boulangerie</span><span class="tag ${diffClass}">${rec.diff}</span></div></div><div><div class="plbl">Portions</div><div class="pbig" id="pd-${idx}">${rec.portions}</div></div></div></div>
+        <div class="two-col"><div class="card"><div class="clabel">⏱ Temps</div><div class="ri"><span class="rl">Préparation</span><span class="rv">${rec.tprep}</span></div><div class="ri"><span class="rl">Cuisson</span><span class="rv">${rec.tcuisson}</span></div><div class="ri"><span class="rl">Façonnage</span><span class="rv">${rec.tmontage}</span></div></div><div class="card"><div class="clabel">💰 Coût & marge</div><div class="ri"><span class="rl">Coût total</span><span class="rv" id="ct-${idx}">—</span></div><div class="ri"><span class="rl">Coût / portion</span><span class="rv" id="cp-${idx}">—</span></div><div class="ri"><span class="rl">Prix vente HT</span><span class="rv" id="cv-${idx}">—</span></div><div class="ri"><span class="rl">Marge brute</span><span class="rv" id="cm-${idx}">—</span></div></div></div>
+        <div class="card"><div class="clabel">🥖 Ingrédients (Qté & prix modifiables)</div><table class="ingr-table"><thead><tr><th>Ingrédient</th><th>Qté</th><th>Unité</th><th>Prix achat (€)</th><th>Prix unit.</th><th>Coût total</th></tr></thead><tbody>${ingRows}</tbody></table>
+        <div style="margin-top:10px; display:flex; gap:1rem; flex-wrap:wrap;"><div><span class="plbl">Nb portions</span> <input type="number" id="port-${idx}" class="ni" value="${rec.portions}" min="1" style="width:70px;"></div><div><span class="plbl">Coef. vente</span> <input type="number" id="coeff-${idx}" class="ni" value="${dynamicData[idx].coeff}" step="0.1" min="1.2" style="width:65px;"></div><div style="flex:1"><div class="plbl">Marge réelle</div><div class="env-bar"><div id="mb-${idx}" style="height:100%; width:0%;"></div></div></div></div></div>
+        <div class="card"><div class="clabel">📋 Étapes</div>${stepsHtml}</div>
+        <div class="two-col"><div class="card"><div class="clabel">⚙️ Équipements</div><div class="tags-row">${equipHtml}</div></div><div class="card"><div class="clabel">⚠️ Allergènes</div><div class="tags-row">${allergHtml}</div></div></div>
+        <div class="card"><div class="clabel">🍽 Présentation</div><p style="font-size:12px;">${escapeHtml(rec.presentation)}</p></div>
+        <div class="card"><div class="clabel">🌱 Impact environnemental</div><div>Empreinte ${rec.envlbl}<div class="env-bar"><div class="env-fill" style="width:${Math.min(100,rec.env)}%;background:${rec.envcol};"></div></div>CO₂: ${rec.co2} · Eau: ${rec.eau}</div></div>
+        <div class="card"><div class="clabel">🍞 Nutrition (par portion)</div><div class="nut-grid"><div class="nc"><div class="nv">${rec.nut.kcal}</div><div class="nl">kcal</div></div><div class="nc"><div class="nv">${rec.nut.prot}g</div><div class="nl">prot.</div></div><div class="nc"><div class="nv">${rec.nut.lip}g</div><div class="nl">lip.</div></div><div class="nc"><div class="nv">${rec.nut.glu}g</div><div class="nl">gluc.</div></div></div></div>
+      </div>
+    `;
+  }
+  function bindEvents(idx) {
+    const portInput = document.getElementById(`port-${idx}`);
+    const coeffInput = document.getElementById(`coeff-${idx}`);
+    if (portInput) portInput.addEventListener('input', () => { RECETTES[idx].portions = Math.max(1, parseInt(portInput.value)||1); dynamicData[idx].portions = RECETTES[idx].portions; document.getElementById(`pd-${idx}`).innerText = RECETTES[idx].portions; recalcFiche(idx); saveDynamic(); });
+    if (coeffInput) coeffInput.addEventListener('input', () => { dynamicData[idx].coeff = parseFloat(coeffInput.value)||3.0; recalcFiche(idx); saveDynamic(); });
+    document.querySelectorAll(`.ni.qty[data-idx="${idx}"]`).forEach(inp => inp.addEventListener('input', () => { const pos = parseInt(inp.dataset.pos); const nv = parseFloat(inp.value); if(!isNaN(nv) && RECETTES[idx].ingredients[pos]) { RECETTES[idx].ingredients[pos].qte = nv; dynamicData[idx].ingredients[pos].qte = nv; recalcFiche(idx); saveDynamic(); } }));
+    document.querySelectorAll(`.ni.a[data-idx="${idx}"]`).forEach(inp => inp.addEventListener('input', () => { const pos = parseInt(inp.dataset.pos); const nv = parseFloat(inp.value); if(!isNaN(nv) && RECETTES[idx].ingredients[pos]) { RECETTES[idx].ingredients[pos].pa = nv; dynamicData[idx].ingredients[pos].pa = nv; recalcFiche(idx); saveDynamic(); } }));
+  }
+  function buildNavAndFiches() {
+    const navDiv = document.getElementById('nav');
+    const fichesDiv = document.getElementById('fiches');
+    navDiv.innerHTML = ''; fichesDiv.innerHTML = '';
+    RECETTES.forEach((rec, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'nav-btn' + (i===0 ? ' active' : '');
+      btn.innerHTML = `<span class="nnum">${rec.num}</span><span class="nname">${escapeHtml(rec.nom.substring(0,20))}</span>`;
+      btn.onclick = () => { document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.fiche').forEach(f=>f.classList.remove('active')); document.getElementById(`f${i}`).classList.add('active'); };
+      navDiv.appendChild(btn);
+      fichesDiv.insertAdjacentHTML('beforeend', buildFiche(rec, i));
+    });
+    for(let i=0;i<RECETTES.length;i++) { recalcFiche(i); bindEvents(i); }
+    // Navigation par ancre URL
+  const hash = window.location.hash;
+  if (hash && hash.startsWith('#f')) {
+    const idx = parseInt(hash.substring(2));
+    if (!isNaN(idx) && document.getElementById('f' + idx)) {
+      document.querySelectorAll('.fiche').forEach(f => f.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('f' + idx).classList.add('active');
+      const navBtns = document.querySelectorAll('.nav-btn');
+      if (navBtns[idx]) navBtns[idx].classList.add('active');
+    } else {
+      document.getElementById('f0')?.classList.add('active');
+    }
+  } else {
+    document.getElementById('f0')?.classList.add('active');
+  }
+  }
+  loadStorage();
+  buildNavAndFiches();
+  saveDynamic();
+})();
+</script>
+</body>
+</html>

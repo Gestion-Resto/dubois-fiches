@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pâtisserie boulangère – Palmiers, sablés, biscuits, madeleines (N°494 à N°535) | gestionresto.fr</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #fff; --bg2: #f7f6f3; --bg3: #f0efe9;
+    --border: rgba(0,0,0,0.11); --border2: rgba(0,0,0,0.20);
+    --text: #1a1a18; --text2: #6b6b67; --text3: #9a9a94;
+    --teal-bg: #E1F5EE; --teal-txt: #085041;
+    --blue-bg: #E6F1FB; --blue-txt: #0C447C;
+    --amber-bg: #FAEEDA; --amber-txt: #633806;
+    --coral-bg: #FAECE7; --coral-txt: #712B13;
+    --gray-bg: #F1EFE8; --gray-txt: #444441;
+    --red-bg: #FCEBEB; --red-txt: #A32D2D;
+    --radius: 10px; --radius-sm: 6px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1a; --bg2: #262624; --bg3: #2e2e2b;
+      --border: rgba(255,255,255,0.09); --border2: rgba(255,255,255,0.18);
+      --text: #f0efe8; --text2: #9a9a92; --text3: #6a6a64;
+      --teal-bg: #04342C; --teal-txt: #9FE1CB;
+      --blue-bg: #042C53; --blue-txt: #B5D4F4;
+      --amber-bg: #412402; --amber-txt: #FAC775;
+      --coral-bg: #4A1B0C; --coral-txt: #F0997B;
+      --gray-bg: #2C2C2A; --gray-txt: #D3D1C7;
+    }
+  }
+  body { font-family: Georgia, 'Times New Roman', serif; background: var(--bg3); color: var(--text); min-height: 100vh; }
+  .page { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .site-header { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.4rem 1.75rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; }
+  .site-header h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .site-header p { font-size: 12px; color: var(--text2); font-family: system-ui, sans-serif; }
+  .header-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; background: var(--teal-bg); color: var(--teal-txt); font-family: sans-serif; }
+  .nav-fiches { display: flex; gap: 6px; margin-bottom: 1.5rem; flex-wrap: wrap; max-height: 200px; overflow-y: auto; padding: 4px 0; }
+  .nav-btn { padding: 5px 10px; border: 0.5px solid var(--border2); border-radius: var(--radius-sm); font-size: 10px; cursor: pointer; background: var(--bg); color: var(--text2); transition: all 0.15s; font-family: sans-serif; font-weight: 500; white-space: nowrap; }
+  .nav-btn:hover { background: var(--bg2); color: var(--text); border-color: #B87C4F; }
+  .nav-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .nav-btn .nnum { font-size: 8px; opacity: 0.7; display: block; margin-bottom: 1px; }
+  .nav-btn .nname { font-weight: 700; font-size: 10px; }
+  .fiche { display: none; } .fiche.active { display: block; }
+  .fiche-header { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1.5rem; margin-bottom: 1rem; }
+  .fiche-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .fiche-source { font-size: 11px; color: var(--text2); margin-bottom: 8px; font-family: sans-serif; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 600; font-family: sans-serif; }
+  .tag-blue { background: var(--blue-bg); color: var(--blue-txt); }
+  .tag-amber { background: var(--amber-bg); color: var(--amber-txt); }
+  .tag-coral { background: var(--coral-bg); color: var(--coral-txt); }
+  .tag-teal { background: var(--teal-bg); color: var(--teal-txt); }
+  .tag-gray { background: var(--gray-bg); color: var(--gray-txt); }
+  .tag-red { background: var(--red-bg); color: var(--red-txt); }
+  .pbig { font-size: 32px; font-weight: 700; line-height: 1; }
+  .plbl { font-size: 10px; color: var(--text2); font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1rem 1.2rem; margin-bottom: 1rem; }
+  .clabel { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--text2); margin-bottom: 10px; font-family: sans-serif; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .ri { display: flex; justify-content: space-between; font-size: 12px; padding: 5px 0; border-bottom: 0.5px solid var(--border); font-family: sans-serif; }
+  .ri:last-child { border-bottom: none; }
+  .rl { color: var(--text2); } .rv { font-weight: 600; }
+  .ingr-table { width: 100%; border-collapse: collapse; font-size: 11px; font-family: sans-serif; }
+  .ingr-table th { text-align: left; color: var(--text2); font-weight: 600; padding: 4px 5px; border-bottom: 0.5px solid var(--border2); font-size: 9px; text-transform: uppercase; }
+  .ingr-table td { padding: 5px 5px; border-bottom: 0.5px solid var(--border); vertical-align: middle; }
+  .ni { width: 70px; padding: 4px 5px; border: 0.5px solid var(--border2); border-radius: var(--radius-sm); font-size: 11px; font-family: monospace; background: var(--bg); color: var(--text); text-align: right; }
+  .ni:focus { outline: none; border-color: #1D9E75; }
+  .ni.a { background: #E1F5EE; border-color: #9FE1CB; font-weight: 600; }
+  .ni.qty { background: #FAEEDA; border-color: #FAC775; font-weight: 600; }
+  .step { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
+  .snum { width: 22px; height: 22px; border-radius: 50%; background: var(--text); color: var(--bg); font-size: 9px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-family: sans-serif; }
+  .stitle { font-weight: 800; font-size: 11px; margin-bottom: 3px; font-family: sans-serif; }
+  .sdesc { font-size: 11px; color: var(--text2); line-height: 1.6; font-family: sans-serif; }
+  .nut-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .nc { background: var(--bg2); border-radius: var(--radius-sm); padding: 8px; text-align: center; }
+  .nv { font-size: 16px; font-weight: 700; }
+  .nl { font-size: 9px; color: var(--text2); margin-top: 2px; }
+  .tags-row { display: flex; flex-wrap: wrap; gap: 5px; }
+  .env-bar { height: 5px; border-radius: 4px; background: var(--border); overflow: hidden; margin: 6px 0; }
+  .env-fill { height: 100%; border-radius: 4px; }
+  .print-bar { display: flex; justify-content: flex-end; margin-bottom: 0.8rem; }
+  .btn-print { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--text); color: var(--bg); border: none; border-radius: var(--radius-sm); font-size: 11px; font-weight: 600; cursor: pointer; font-family: sans-serif; }
+  .btn-print:hover { opacity: 0.8; }
+  .footer { text-align: center; font-size: 10px; color: var(--text3); margin-top: 2rem; padding-top: 1rem; border-top: 0.5px solid var(--border); font-family: sans-serif; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } .nut-grid { grid-template-columns: repeat(2, 1fr); } .page { padding: 1rem; } .fiche-title { font-size: 1.3rem; } }
+  @media print {
+    @page { size: A4 portrait; margin: 12mm 14mm; }
+    .nav-fiches, .print-bar, .site-header, .footer { display: none !important; }
+    .fiche { display: none !important; } .fiche.active { display: block !important; }
+    body { background: white; font-size: 9pt; } .page { max-width: 100%; padding: 0; }
+    .card { border: 0.5pt solid #ccc; padding: 6pt; margin-bottom: 5pt; break-inside: avoid; }
+    .ni { border: none; background: transparent; font-size: 8pt; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="site-header">
+  <div>
+    <h1>La Boulangerie d'aujourd'hui – Urbain Dubois</h1>
+    <p>Pâtisserie boulangère · Palmiers, sablés, biscuits, madeleines · N°494 à N°535</p>
+  </div>
+  <div class="header-badge">gestionresto.fr · 31 recettes · p.249–256</div>
+</div>
+<div class="nav-fiches" id="nav"></div>
+<div id="fiches"></div>
+<div class="footer">© gestionresto.fr — Données personnalisables, sauvegarde automatique — d'après "La Boulangerie d'aujourd'hui" d'Urbain Dubois (1893)</div>
+</div>
+
+<script>
+  (function() {
+    if (!window.storage) {
+      window.storage = {
+        async get(key) { const val = localStorage.getItem(key); return val ? { value: val } : null; },
+        async set(key, value) { localStorage.setItem(key, value); }
+      };
+    }
+    const STORAGE_KEY = 'gr_patisserie_suite_v1';
+
+    const RECETTES = [
+      { num:"N°494", nom:"Palmiers", sousTitre:"Feuilletage sucré", page:249, diff:"Difficile", categorie:"Feuilletage", portions:20, tprep:"30 min + repos", tcuisson:"12 min", tmontage:"20 min",
+        nut:{kcal:300,prot:3,lip:18,glu:32}, co2:"0.55", eau:"130", env:38, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Beurre"], presentation:"Palmiers à 6 tours, poudrés de sucre, découpés en tranches.",
+        ingredients:[{n:"Feuilletage (6 tours)",qte:500,u:"g",pa:2.00,qr:1000},{n:"Sucre glace",qte:100,u:"g",pa:1.50,qr:1000}],
+        steps:["Donner les deux derniers tours avec du sucre glace. Abaisser en bande de 1 cm épais, 24 cm large. Rabattre les bords longs dans le milieu, passer le rouleau, plier en deux.","Détailler en tranches de 1 cm. Dresser sur plaque mouillée, espacer de 10 cm, écarter le joint. Laisser reposer. Cuire à four chaud sur plaque doublée."],
+        equip:["Rouleau","Plaque"] },
+      { num:"N°495", nom:"Jésuites", sousTitre:"Feuilletage garni", page:249, diff:"Difficile", categorie:"Feuilletage", portions:12, tprep:"25 min + repos", tcuisson:"15 min", tmontage:"20 min",
+        nut:{kcal:340,prot:5,lip:20,glu:34}, co2:"0.6", eau:"140", env:40, envlbl:"Élevé", envcol:"#E24B4A",
+        allerg:["Gluten","Beurre","Amandes","Œufs"], presentation:"Bandes doubles garnies de crème d'amandes, amandes effilées.",
+        ingredients:[{n:"Feuilletage",qte:500,u:"g",pa:2.00,qr:1000},{n:"Crème d'amandes au rhum",qte:200,u:"g",pa:3.00,qr:1000},{n:"Amandes effilées",qte:50,u:"g",pa:8.00,qr:1000}],
+        steps:["Abaisser à 1/2 cm, découper bandes de 10 cm de large. Sur une bande retournée, étaler crème d'amandes, mouiller les bords, couvrir d'une bande non garnie, souder.","Étaler mince de la crème d'amandes sur le dessus, parsemer d'amandes effilées. Détailler en triangles de 10 cm de côté. Laisser reposer, cuire. Poudrer de sucre glace en sortant."],
+        equip:["Pinceau","Couteau"] },
+      { num:"N°496", nom:"Millefeuilles", sousTitre:"Bandes superposées", page:249, diff:"Difficile", categorie:"Feuilletage", portions:12, tprep:"25 min + repos", tcuisson:"15 min", tmontage:"20 min",
+        nut:{kcal:320,prot:4,lip:18,glu:34}, co2:"0.55", eau:"130", env:38, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Beurre","Œufs","Lait"], presentation:"Trois bandes superposées, garnies de crème ou marmelade.",
+        ingredients:[{n:"Feuilletage",qte:500,u:"g",pa:2.00,qr:1000},{n:"Crème pâtissière ou marmelade",qte:200,u:"g",pa:1.50,qr:1000}],
+        steps:["Abaisser à 1/2 cm sur toute la plaque mouillée. Retourner, piquer, laisser reposer, cuire à four chaud.","Refroidi, découper 3 bandes égales. Garnir 2 bandes de crème, les superposer, mettre la bande non garnie par-dessus. Détailler en morceaux de 5 cm, poudrer de sucre glace."],
+        equip:["Fourchette","Couteau"] },
+      { num:"N°497", nom:"Cornets", sousTitre:"Moule spécial", page:249, diff:"Moyen", categorie:"Feuilletage", portions:20, tprep:"20 min + repos", tcuisson:"10 min", tmontage:"15 min",
+        nut:{kcal:260,prot:3,lip:15,glu:27}, co2:"0.45", eau:"110", env:32, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Beurre"], presentation:"Cornets feuilletés, garnis de crème ou confiture.",
+        ingredients:[{n:"Feuilletage mince",qte:400,u:"g",pa:2.00,qr:1000},{n:"Crème fouettée ou confiture",qte:150,u:"g",pa:2.00,qr:1000}],
+        steps:["Découper des bandes de 25×2 cm, retourner, mouiller légèrement. Enrouler autour d'un moule à cornet en chevauchant.","Dresser sur plaque mouillée, reposer, dorer, cuire à four chaud. Retirer le moule, refroidir, garnir."],
+        equip:["Moules à cornet","Pinceau"] },
+      { num:"N°498", nom:"Petits Pithiviers", sousTitre:"Ronds garnis", page:249, diff:"Difficile", categorie:"Feuilletage", portions:12, tprep:"25 min + repos", tcuisson:"15 min", tmontage:"20 min",
+        nut:{kcal:330,prot:5,lip:19,glu:33}, co2:"0.58", eau:"135", env:39, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Beurre","Amandes"], presentation:"Deux rondelles de feuilletage, garnies de crème d'amandes.",
+        ingredients:[{n:"Feuilletage",qte:400,u:"g",pa:2.00,qr:1000},{n:"Crème aux amandes",qte:150,u:"g",pa:3.00,qr:1000}],
+        steps:["Abaisser, découper des ronds de 10 cm (cannelé). Poser un tas de crème au milieu d'une rondelle retournée, mouiller les bords, couvrir avec une autre rondelle, souder.","Laisser reposer, dorer, rayer, cuire à four chaud."],
+        equip:["Emporte-pièce cannelé","Pinceau"] },
+      { num:"N°499", nom:"Grandes galettes feuilletées", sousTitre:"Bon marché", page:250, diff:"Moyen", categorie:"Feuilletage", portions:8, tprep:"20 min + repos", tcuisson:"15 min", tmontage:"15 min",
+        nut:{kcal:320,prot:4,lip:18,glu:34}, co2:"0.55", eau:"130", env:38, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Margarine"], presentation:"Galettes en feuilletage allégé (1kg margarine pour 3kg détrempe, 4 tours).",
+        ingredients:[{n:"Farine",qte:3000,u:"g",pa:0.90,qr:1000},{n:"Margarine",qte:1000,u:"g",pa:1.50,qr:1000},{n:"Sel",qte:20,u:"g",pa:0.80,qr:1000},{n:"Eau",qte:1500,u:"ml",pa:0.001,qr:1000}],
+        steps:["Préparer détrempe, beurrer, donner 4 tours. Détailler en morceaux 250-500g. Rabattre les 4 coins au centre, retourner, bouler, reposer.","Aplatir en galette, retourner, dresser sur plaque mouillée, dorer, rayer, piquer. Four chaud."],
+        equip:["Plaque","Fourchette"] },
+      { num:"N°500", nom:"Galettes de plomb", sousTitre:"Brioche + feuilletage", page:250, diff:"Difficile", categorie:"Viennoiserie", portions:8, tprep:"30 min + repos", tcuisson:"15 min", tmontage:"20 min",
+        nut:{kcal:360,prot:6,lip:20,glu:38}, co2:"0.65", eau:"150", env:42, envlbl:"Élevé", envcol:"#E24B4A",
+        allerg:["Gluten","Beurre","Œufs"], presentation:"Mélange moitié pâte à brioche, moitié feuilletage, 4 tours.",
+        ingredients:[{n:"Pâte à brioche",qte:500,u:"g",pa:1.20,qr:1000},{n:"Feuilletage (4 tours)",qte:500,u:"g",pa:2.00,qr:1000}],
+        steps:["Hacher grossièrement au couteau. Abaisser, donner 2 tours, reposer, encore 2 tours. Détailler en galettes. Laisser reposer, dorer, rayer. Four chaud."],
+        equip:["Couteau","Rouleau"] },
+      { num:"N°501", nom:"Pains-chocolat (feuilletage)", sousTitre:"Tablette boulangère", page:250, diff:"Moyen", categorie:"Feuilletage", portions:15, tprep:"20 min + repos", tcuisson:"12 min", tmontage:"15 min",
+        nut:{kcal:380,prot:5,lip:22,glu:40}, co2:"0.65", eau:"150", env:42, envlbl:"Élevé", envcol:"#E24B4A",
+        allerg:["Gluten","Beurre","Chocolat"], presentation:"Carrés de feuilletage roulés autour d'une tablette de chocolat.",
+        ingredients:[{n:"Feuilletage",qte:500,u:"g",pa:2.00,qr:1000},{n:"Tablettes chocolat boulangère",qte:15,u:"pcs",pa:0.50,qr:1}],
+        steps:["Abaisser, découper en bandes puis carrés. Rouler une tablette dans chaque carré. Dresser sur plaque, reposer, dorer, four chaud."],
+        equip:["Plaque","Pinceau"] },
+      { num:"N°502", nom:"Tartelettes diverses (visitandines, pont-neufs, conversations)", sousTitre:"Rognures de feuilletage", page:250, diff:"Moyen", categorie:"Feuilletage", portions:12, tprep:"20 min + repos", tcuisson:"12 min", tmontage:"15 min",
+        nut:{kcal:290,prot:4,lip:16,glu:30}, co2:"0.5", eau:"120", env:34, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Beurre"], presentation:"Visitandines (pulpe de pommes), pont-neufs (frangipane+choux), conversations (frangipane+glace royale).",
+        ingredients:[{n:"Rognures de feuilletage",qte:400,u:"g",pa:1.50,qr:1000},{n:"Pulpe de pommes, crème frangipane, pâte à choux",qte:200,u:"g",pa:2.00,qr:1000}],
+        steps:["Foncer des moules à tartelettes avec les rognures.","Visitandines : garnir de pulpe de pommes sucrée, cuire, napper d'abricot.","Pont-neufs : mélanger moitié frangipane moitié pâte à choux, garnir, poser 2 bandes en croix.","Conversations : garnir de frangipane, couvrir d'une rondelle, lustrer de glace royale, grillager."],
+        equip:["Moules à tartelettes","Poche"] },
+      { num:"N°511", nom:"Sablés (pâte à sablés)", sousTitre:"Sans œufs ni levure", page:251, diff:"Moyen", categorie:"Sablés", portions:20, tprep:"15 min", tcuisson:"10 min", tmontage:"10 min",
+        nut:{kcal:280,prot:3,lip:14,glu:34}, co2:"0.45", eau:"110", env:30, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Margarine"], presentation:"Pâte à sablés, découpage à l'emporte-pièce.",
+        ingredients:[{n:"Farine tamisée",qte:500,u:"g",pa:0.90,qr:1000},{n:"Sucre poudre",qte:250,u:"g",pa:1.20,qr:1000},{n:"Margarine",qte:250,u:"g",pa:1.50,qr:1000},{n:"Sucre vanillé",qte:5,u:"g",pa:2.00,qr:1000},{n:"Sel",qte:2,u:"g",pa:0.80,qr:1000},{n:"Colorant jaune",qte:3,u:"g",pa:0.10,qr:1000},{n:"Eau",qte:50,u:"ml",pa:0.001,qr:1000}],
+        steps:["Mélanger farine, sucre, margarine ramollie, eau, parfum. Pâte lisse, sans travailler. Épaisseur 1/2 cm. Détailler à l'emporte-pièce, dresser sur plaque mouillée. Four modéré 10 min."],
+        equip:["Emporte-pièce","Plaque"] },
+      { num:"N°512", nom:"Sablés à la confiture", sousTitre:"Barquettes ou couronnes", page:251, diff:"Moyen", categorie:"Sablés", portions:15, tprep:"20 min", tcuisson:"10 min", tmontage:"15 min",
+        nut:{kcal:310,prot:3,lip:14,glu:40}, co2:"0.5", eau:"120", env:34, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Margarine"], presentation:"Deux sablés collés à la confiture, ou couronne sur rondelle.",
+        ingredients:[{n:"Pâte à sablés",qte:500,u:"g",pa:1.20,qr:1000},{n:"Confiture (abricot, framboise)",qte:150,u:"g",pa:2.50,qr:1000}],
+        steps:["Détailler des formes (barquettes, rondelles). Cuire. Abricoter une pièce, couvrir d'une autre. Ou bien couronne sur rondelle abricotée, garnir le milieu de confiture."],
+        equip:["Emporte-pièce","Pinceau"] },
+      { num:"N°513", nom:"Nantais", sousTitre:"Carbonate", page:251, diff:"Moyen", categorie:"Sablés", portions:20, tprep:"15 min", tcuisson:"10 min", tmontage:"10 min",
+        nut:{kcal:280,prot:4,lip:10,glu:44}, co2:"0.45", eau:"110", env:30, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Margarine","Œufs"], presentation:"Petits gâteaux ronds ou ovales, dorés, quadrillés.",
+        ingredients:[{n:"Farine",qte:1125,u:"g",pa:0.90,qr:1000},{n:"Sucre poudre",qte:500,u:"g",pa:1.20,qr:1000},{n:"Margarine",qte:200,u:"g",pa:1.50,qr:1000},{n:"Carbonate d'ammoniaque",qte:10,u:"g",pa:2.00,qr:1000},{n:"Vanille ou fleur d'oranger",qte:5,u:"ml",pa:5.00,qr:1000},{n:"Colorant jaune",qte:3,u:"g",pa:0.10,qr:1000},{n:"Eau",qte:500,u:"ml",pa:0.001,qr:1000}],
+        steps:["Mélanger farine, sucre, carbonate, colorant, eau, margarine manié. Pâte ferme et lisse. Épaisseur 1/2 cm, emporte-pièce cannelé 8 cm. Dresser sur plaque graissée et mouillée, dorer à l'œuf+caramel, quadriller, cuire à four chaud."],
+        equip:["Emporte-pièce","Fourchette"] },
+      { num:"N°514", nom:"Bâtonnets nantais", sousTitre:"Cannelle ou anis", page:252, diff:"Moyen", categorie:"Sablés", portions:20, tprep:"15 min", tcuisson:"10 min", tmontage:"10 min",
+        nut:{kcal:270,prot:3,lip:10,glu:42}, co2:"0.42", eau:"105", env:28, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Margarine"], presentation:"Bâtonnets de pâte à nantais parfumée, roulés dans sucre ou amandes.",
+        ingredients:[{n:"Pâte à nantais",qte:600,u:"g",pa:1.20,qr:1000},{n:"Cannelle ou anis",qte:5,u:"g",pa:3.00,qr:1000},{n:"Sucre en grains",qte:50,u:"g",pa:1.20,qr:1000}],
+        steps:["Parfumer la pâte. Détailler 30g, rouler en bâtonnets de 20 cm (crayon). Dorer, rouler dans sucre en grains ou amandes hachées. Dresser sur plaque légèrement graissée et mouillée. Four chaud."],
+        equip:["Plaque"] },
+      { num:"N°515", nom:"Chapeaux de Marquis", sousTitre:"Tricorne", page:252, diff:"Difficile", categorie:"Sablés", portions:12, tprep:"25 min", tcuisson:"12 min", tmontage:"20 min",
+        nut:{kcal:320,prot:5,lip:12,glu:46}, co2:"0.5", eau:"120", env:34, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Margarine","Amandes"], presentation:"Rondelle de pâte à nantais, garnie d'une boule de pâte d'amandes, formée en tricorne.",
+        ingredients:[{n:"Pâte à nantais",qte:500,u:"g",pa:1.20,qr:1000},{n:"Pâte d'amandes (N°477)",qte:150,u:"g",pa:4.00,qr:1000}],
+        steps:["Découper des rondelles de 10 cm. Mouiller légèrement, placer une petite boule de pâte d'amandes au centre. Relever 3 côtés des bords et les rabattre sur la boule pour former un tricorne.","Dresser sur plaque graissée et mouillée, dorer à l'œuf+caramel. Four chaud."],
+        equip:["Pinceau"] },
+      { num:"N°516", nom:"Galettes nantaises glacées", sousTitre:"Fondant blanc", page:252, diff:"Moyen", categorie:"Sablés", portions:20, tprep:"15 min", tcuisson:"10 min", tmontage:"10 min",
+        nut:{kcal:300,prot:3,lip:11,glu:46}, co2:"0.48", eau:"115", env:32, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Margarine","Raisins"], presentation:"Pâte à nantais aux raisins de Corinthe, glacée au fondant blanc parfumé rhum.",
+        ingredients:[{n:"Pâte à nantais",qte:600,u:"g",pa:1.20,qr:1000},{n:"Raisins de Corinthe",qte:100,u:"g",pa:3.50,qr:1000},{n:"Fondant blanc parfumé rhum",qte:100,u:"g",pa:2.00,qr:1000}],
+        steps:["Incorporer les raisins à la pâte. Étendre, détailler en ronds cannelés 7-8 cm. Dresser sur plaque graissée et mouillée, dorer au lait, cuire à four chaud. Glacer au fondant en défournant."],
+        equip:["Emporte-pièce","Pinceau"] },
+      { num:"N°517", nom:"Linzer-tartes", sousTitre:"Confiture framboise", page:252, diff:"Moyen", categorie:"Tartelettes", portions:12, tprep:"20 min", tcuisson:"15 min", tmontage:"15 min",
+        nut:{kcal:310,prot:4,lip:12,glu:46}, co2:"0.5", eau:"120", env:34, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Margarine"], presentation:"Fond de pâte à nantais à la cannelle, garni de confiture de framboises, grillagé.",
+        ingredients:[{n:"Pâte à nantais",qte:500,u:"g",pa:1.20,qr:1000},{n:"Cannelle",qte:3,u:"g",pa:3.00,qr:1000},{n:"Confiture de framboises",qte:200,u:"g",pa:3.00,qr:1000}],
+        steps:["Ajouter la cannelle à la pâte. Foncer des cercles ou moules à tartelettes, garnir de confiture, grillager le dessus en losange. Cuire sur plaque lisse à four chaud."],
+        equip:["Cercles","Grillage"] },
+      { num:"N°518", nom:"Croquets de Paris", sousTitre:"Amandes", page:252, diff:"Moyen", categorie:"Biscuits", portions:20, tprep:"20 min", tcuisson:"12 min", tmontage:"15 min",
+        nut:{kcal:280,prot:5,lip:8,glu:48}, co2:"0.45", eau:"110", env:30, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Œufs","Amandes"], presentation:"Bandes de pâte très ferme, cuites puis coupées en morceaux.",
+        ingredients:[{n:"Farine",qte:500,u:"g",pa:0.90,qr:1000},{n:"Sucre poudre",qte:250,u:"g",pa:1.20,qr:1000},{n:"Amandes brutes hachées gros",qte:60,u:"g",pa:8.00,qr:1000},{n:"Œufs",qte:3,u:"pcs",pa:2.40,qr:20},{n:"Carbonate d'ammoniaque",qte:5,u:"g",pa:2.00,qr:1000},{n:"Vanille ou fleur d'oranger",qte:5,u:"ml",pa:5.00,qr:1000}],
+        steps:["Mélanger farine, carbonate écrasé délayé dans les œufs, sucre, amandes, parfum. Pâte très ferme. Former deux boudins, aplatir en bandes (1,5 cm × 8 cm).","Dorer au jaune+caramel, rayer à la fourchette. Cuire à four moyen, puis découper en morceaux de 2 cm."],
+        equip:["Fourchette","Couteau"] },
+      { num:"N°519", nom:"Croquets plats de Bordeaux", sousTitre:"Amandes ou noisettes", page:253, diff:"Moyen", categorie:"Biscuits", portions:20, tprep:"15 min", tcuisson:"12 min", tmontage:"10 min",
+        nut:{kcal:320,prot:4,lip:6,glu:62}, co2:"0.45", eau:"110", env:28, envlbl:"Faible", envcol:"#1D9E75",
+        allerg:["Gluten","Amandes"], presentation:"Croquets très sucrés, s'étalent à la cuisson.",
+        ingredients:[{n:"Farine",qte:500,u:"g",pa:0.90,qr:1000},{n:"Sucre poudre",qte:1000,u:"g",pa:1.20,qr:1000},{n:"Amandes ou noisettes hachées",qte:100,u:"g",pa:7.00,qr:1000},{n:"Carbonate d'ammoniaque",qte:5,u:"g",pa:2.00,qr:1000},{n:"Fleur d'oranger, vanille",qte:5,u:"ml",pa:5.00,qr:1000},{n:"Eau",qte:100,u:"ml",pa:0.001,qr:1000}],
+        steps:["Mélanger tous ingrédients en pâte ferme. Former deux boudins, aplatir en bandes de 2 cm × 8 cm. Découper en morceaux de 2 cm.","Dresser sur plaque graissée et mouillée, espacer largement. Four moyen."],
+        equip:["Plaque"] },
+      { num:"N°520", nom:"Langues de Chat", sousTitre:"Pâte à la poche", page:253, diff:"Moyen", categorie:"Petits gâteaux", portions:30, tprep:"15 min", tcuisson:"8 min", tmontage:"10 min",
+        nut:{kcal:240,prot:3,lip:14,glu:26}, co2:"0.4", eau:"100", env:28, envlbl:"Faible", envcol:"#1D9E75",
+        allerg:["Gluten","Beurre","Œufs"], presentation:"Bâtonnets de pâte à la poche, cuits très secs.",
+        ingredients:[{n:"Beurre",qte:500,u:"g",pa:6.50,qr:1000},{n:"Œufs",qte:10,u:"pcs",pa:2.40,qr:20},{n:"Sucre poudre tamisé",qte:500,u:"g",pa:1.20,qr:1000},{n:"Farine tamisée",qte:600,u:"g",pa:0.90,qr:1000},{n:"Vanille, fleur d'oranger",qte:5,u:"ml",pa:5.00,qr:1000}],
+        steps:["Travailler le beurre en pommade, ajouter œufs un à un, puis sucre, parfum, farine.","Dresser à la poche (douille unie) des bâtonnets de 7-8 cm (gros comme un crayon) sur plaque bien lisse. Cuire à four chaud, décoller aussitôt cuit."],
+        equip:["Poche","Plaque"] },
+      { num:"N°521", nom:"Palets aux amandes", sousTitre:"Pâte à langues", page:253, diff:"Facile", categorie:"Petits gâteaux", portions:20, tprep:"10 min", tcuisson:"8 min", tmontage:"5 min",
+        nut:{kcal:270,prot:4,lip:16,glu:26}, co2:"0.45", eau:"105", env:30, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Beurre","Œufs","Amandes"], presentation:"Petits ronds de pâte à langues de chat, saupoudrés d'amandes.",
+        ingredients:[{n:"Pâte à langues de chat",qte:500,u:"g",pa:2.00,qr:1000},{n:"Amandes hachées",qte:50,u:"g",pa:8.00,qr:1000}],
+        steps:["Dresser à la poche des petits ronds comme des petits choux. Parsemer d'amandes hachées. Cuire à four chaud, décoller aussitôt."],
+        equip:["Poche"] },
+      { num:"N°522", nom:"Palets aux raisins", sousTitre:"Rhum et vanille", page:253, diff:"Facile", categorie:"Petits gâteaux", portions:20, tprep:"10 min", tcuisson:"8 min", tmontage:"5 min",
+        nut:{kcal:280,prot:3,lip:14,glu:30}, co2:"0.48", eau:"110", env:32, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Beurre","Œufs","Raisins"], presentation:"Pâte à langues de chat aux raisins de Corinthe.",
+        ingredients:[{n:"Pâte à langues de chat",qte:1000,u:"g",pa:2.00,qr:1000},{n:"Raisins de Corinthe",qte:175,u:"g",pa:3.50,qr:1000}],
+        steps:["Incorporer les raisins à la pâte parfumée vanille et rhum. Dresser des petits ronds. Cuire à four chaud, décoller aussitôt."],
+        equip:["Poche"] },
+      { num:"N°523", nom:"Tuiles", sousTitre:"Blancs d'œufs", page:253, diff:"Moyen", categorie:"Biscuits", portions:20, tprep:"15 min", tcuisson:"8 min", tmontage:"10 min",
+        nut:{kcal:220,prot:4,lip:6,glu:38}, co2:"0.35", eau:"90", env:22, envlbl:"Faible", envcol:"#1D9E75",
+        allerg:["Gluten","Amandes","Œufs"], presentation:"Petits disques cintrés sur un rouleau.",
+        ingredients:[{n:"Sucre poudre",qte:500,u:"g",pa:1.20,qr:1000},{n:"Amandes en poudre",qte:400,u:"g",pa:8.00,qr:1000},{n:"Farine",qte:100,u:"g",pa:0.90,qr:1000},{n:"Vanille",qte:2,u:"g",pa:1.50,qr:1000},{n:"Blancs d'œufs",qte:10,u:"pcs",pa:2.40,qr:20}],
+        steps:["Mélanger sucre, amandes, farine, vanille. Ajouter les blancs. Sur plaque beurrée, dresser des petits tas (noix). Cuire à four chaud. Décoller immédiatement, cintrer sur un rouleau ou gouttière.","Variante : ajouter amandes effilées avant cuisson."],
+        equip:["Plaque","Rouleau"] },
+      { num:"N°524", nom:"Palets chocolat", sousTitre:"Couverture", page:253, diff:"Facile", categorie:"Petits gâteaux", portions:20, tprep:"10 min", tcuisson:"-", tmontage:"5 min",
+        nut:{kcal:280,prot:3,lip:14,glu:30}, co2:"0.5", eau:"120", env:35, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Chocolat"], presentation:"Tuiles non cintrées, nappées de chocolat.",
+        ingredients:[{n:"Tuiles cuites (N°523)",qte:1,u:"fournée",pa:2.00,qr:1},{n:"Couverture chocolat",qte:150,u:"g",pa:8.00,qr:1000}],
+        steps:["Étaler la couverture chocolat sur les tuiles refroidies non cintrées. Laisser sécher."],
+        equip:["Palette"] },
+      { num:"N°525", nom:"Biscuit Génois (ordinaire)", sousTitre:"Sans beurre", page:254, diff:"Moyen", categorie:"Biscuit", portions:12, tprep:"20 min", tcuisson:"20 min", tmontage:"10 min",
+        nut:{kcal:250,prot:5,lip:4,glu:48}, co2:"0.4", eau:"100", env:26, envlbl:"Faible", envcol:"#1D9E75",
+        allerg:["Gluten","Œufs"], presentation:"Biscuit léger sans matière grasse.",
+        ingredients:[{n:"Sucre cristallisé",qte:500,u:"g",pa:1.20,qr:1000},{n:"Œufs entiers",qte:16,u:"pcs",pa:2.40,qr:20},{n:"Farine tamisée",qte:500,u:"g",pa:0.90,qr:1000},{n:"Sel",qte:2,u:"g",pa:0.80,qr:1000},{n:"Vanille ou fleur d'oranger",qte:5,u:"ml",pa:5.00,qr:1000}],
+        steps:["Au bain-marie, battre œufs, sucre, sel, parfum jusqu'à tiédissement et mousseux. Retirer, battre jusqu'à refroidissement.","Incorporer la farine à la spatule. Garnir des moules graissés (moitié hauteur). Cuire à four doux."],
+        equip:["Fouet","Moules"] },
+      { num:"N°526", nom:"Génoise (au beurre)", sousTitre:"Plus riche", page:254, diff:"Moyen", categorie:"Biscuit", portions:12, tprep:"20 min", tcuisson:"20 min", tmontage:"10 min",
+        nut:{kcal:320,prot:5,lip:14,glu:42}, co2:"0.55", eau:"130", env:36, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Œufs","Beurre"], presentation:"Biscuit génois avec beurre fondu.",
+        ingredients:[{n:"Pâte à biscuit génois (N°525)",qte:1,u:"fournée",pa:1.50,qr:1},{n:"Beurre fondu presque froid",qte:250,u:"g",pa:6.50,qr:1000}],
+        steps:["Préparer la pâte comme N°525. Incorporer délicatement le beurre fondu. Cuire."],
+        equip:["Spatule"] },
+      { num:"N°527", nom:"Petits gâteaux Moka", sousTitre:"Carrés", page:254, diff:"Moyen", categorie:"Petits gâteaux", portions:20, tprep:"25 min", tcuisson:"-", tmontage:"25 min",
+        nut:{kcal:380,prot:5,lip:20,glu:44}, co2:"0.65", eau:"150", env:42, envlbl:"Élevé", envcol:"#E24B4A",
+        allerg:["Gluten","Œufs","Beurre","Amandes"], presentation:"Carrés de génoise fourrés et masqués de crème au beurre.",
+        ingredients:[{n:"Génoise (N°526)",qte:1,u:"plaque",pa:2.00,qr:1},{n:"Crème au beurre (vanille/café/chocolat)",qte:400,u:"g",pa:2.50,qr:1000},{n:"Amandes grillées ou sucre grains",qte:50,u:"g",pa:8.00,qr:1000}],
+        steps:["Fendre la génoise en deux épaisseurs. Étaler la crème sur une moitié, couvrir. Masquer le dessus avec la même crème, parsemer d'amandes ou sucre.","Découper des carrés de 5 cm. Masquer les côtés, décorer le dessus à la poche. (En été, garnir à la confiture)."],
+        equip:["Couteau","Poche"] },
+      { num:"N°528", nom:"Biscuits roulés", sousTitre:"Bûche", page:255, diff:"Difficile", categorie:"Biscuit", portions:12, tprep:"20 min", tcuisson:"10 min", tmontage:"20 min",
+        nut:{kcal:340,prot:5,lip:18,glu:40}, co2:"0.6", eau:"140", env:40, envlbl:"Élevé", envcol:"#E24B4A",
+        allerg:["Gluten","Œufs","Beurre","Chocolat"], presentation:"Génoise roulée avec garniture, découpée en rondelles.",
+        ingredients:[{n:"Pâte à biscuit génois",qte:800,u:"g",pa:1.50,qr:1000},{n:"Crème au beurre chocolat",qte:300,u:"g",pa:2.50,qr:1000},{n:"Chocolat granulé ou sucre",qte:50,u:"g",pa:4.00,qr:1000}],
+        steps:["Étaler la pâte à 1/2 doigt sur plaque graissée et farinée. Cuire à four modéré (ne pas trop cuire). Détacher, retourner sur papier, refroidir.","Étaler la crème, rouler en boudin. Lustrer de crème, rouler dans le chocolat ou sucre. Découper en biseau (rondelles de 2 cm). Pour Noël : bûche de 10-12 cm, décorer à la poche."],
+        equip:["Palette","Papier"] },
+      { num:"N°529", nom:"Pains de Gênes", sousTitre:"Aux amandes", page:255, diff:"Difficile", categorie:"Biscuit", portions:10, tprep:"20 min", tcuisson:"25 min", tmontage:"10 min",
+        nut:{kcal:380,prot:8,lip:22,glu:40}, co2:"0.65", eau:"150", env:42, envlbl:"Élevé", envcol:"#E24B4A",
+        allerg:["Gluten","Œufs","Beurre","Amandes"], presentation:"Génoise enrichie d'amandes en poudre, cuite en moule côtelé.",
+        ingredients:[{n:"Pâte génoise (N°526)",qte:1,u:"fournée",pa:1.50,qr:1},{n:"Amandes en poudre",qte:200,u:"g",pa:8.00,qr:1000}],
+        steps:["Incorporer les amandes en poudre à la pâte. Garnir aux 3/4 des moules à pain de Gênes (côtelés, graissés, fond tapissé de papier). Four doux. Démouler aussitôt."],
+        equip:["Moules côtelés","Papier"] },
+      { num:"N°530", nom:"Madeleines (1re recette)", sousTitre:"Pâte molle", page:255, diff:"Moyen", categorie:"Madeleines", portions:24, tprep:"15 min", tcuisson:"15 min", tmontage:"10 min",
+        nut:{kcal:280,prot:4,lip:10,glu:44}, co2:"0.45", eau:"110", env:30, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Œufs","Végétaline"], presentation:"Madeleines au carbonate, pâte molle.",
+        ingredients:[{n:"Farine",qte:1125,u:"g",pa:0.90,qr:1000},{n:"Sucre",qte:900,u:"g",pa:1.20,qr:1000},{n:"Végétaline",qte:375,u:"g",pa:1.20,qr:1000},{n:"Œufs",qte:6,u:"pcs",pa:2.40,qr:20},{n:"Carbonate d'ammoniaque",qte:20,u:"g",pa:2.00,qr:1000},{n:"Parfum (fleur d'oranger, amande, citron)",qte:10,u:"ml",pa:5.00,qr:1000},{n:"Lait environ",qte:500,u:"ml",pa:0.80,qr:1000}],
+        steps:["Tamiser farine+ carbonate. Mélanger œufs, sucre, lait tiède, ajouter farine, puis végétaline fondue tiède, parfum. Pâte molle.","Garnir aux 3/4 des moules à madeleine graissés. Cuire à four doux 15 min."],
+        equip:["Moules à madeleine","Poche"] },
+      { num:"N°532", nom:"Pâte à biscuit cuillère", sousTitre:"Biscuits à la cuillère", page:256, diff:"Moyen", categorie:"Biscuit", portions:20, tprep:"20 min", tcuisson:"10 min", tmontage:"10 min",
+        nut:{kcal:220,prot:5,lip:1,glu:48}, co2:"0.35", eau:"90", env:22, envlbl:"Faible", envcol:"#1D9E75",
+        allerg:["Gluten","Œufs"], presentation:"Pâte à biscuit cuillère, pochée, saupoudrée de sucre glace.",
+        ingredients:[{n:"Farine tamisée",qte:500,u:"g",pa:0.90,qr:1000},{n:"Sucre poudre",qte:500,u:"g",pa:1.20,qr:1000},{n:"Jaunes d'œufs",qte:20,u:"pcs",pa:0.30,qr:1},{n:"Blancs d'œufs montés",qte:20,u:"pcs",pa:2.40,qr:20},{n:"Vanille ou fleur d'oranger",qte:5,u:"ml",pa:5.00,qr:1000}],
+        steps:["Faire mousser jaunes, sucre, parfum. Ajouter un peu de blancs montés. Incorporer la farine, puis le reste des blancs délicatement.","Dresser à la poche (douille assez grosse) des bâtonnets sur papier ou plaque graissée. Saupoudrer de sucre glace deux fois, asperger d'eau. Four doux."],
+        equip:["Poche","Tamis"] },
+      { num:"N°533", nom:"Bouchées aux confitures", sousTitre:"Rondelles fourrées", page:256, diff:"Moyen", categorie:"Petits gâteaux", portions:20, tprep:"20 min", tcuisson:"10 min", tmontage:"15 min",
+        nut:{kcal:260,prot:3,lip:1,glu:56}, co2:"0.4", eau:"100", env:25, envlbl:"Faible", envcol:"#1D9E75",
+        allerg:["Gluten","Œufs"], presentation:"Deux biscuits cuillère collés avec confiture, glacés au fondant.",
+        ingredients:[{n:"Pâte à biscuit cuillère",qte:500,u:"g",pa:1.20,qr:1000},{n:"Confiture ou crème",qte:150,u:"g",pa:2.50,qr:1000},{n:"Fondant",qte:100,u:"g",pa:2.00,qr:1000}],
+        steps:["Dresser des ronds de pâte, cuire, refroidir. Étaler la confiture sur une rondelle, couvrir d'une autre rondelle (côté bombé dessus). Glacer au fondant."],
+        equip:["Poche","Couteau"] },
+      { num:"N°534", nom:"Petits cakes", sousTitre:"Raisins et fruits confits", page:256, diff:"Moyen", categorie:"Cake", portions:20, tprep:"20 min", tcuisson:"25 min", tmontage:"15 min",
+        nut:{kcal:350,prot:5,lip:12,glu:52}, co2:"0.6", eau:"140", env:38, envlbl:"Modéré", envcol:"#EF9F27",
+        allerg:["Gluten","Œufs","Beurre","Raisins","Fruits confits"], presentation:"Petits cakes en moules à baba, garnis de raisins et fruits confits.",
+        ingredients:[{n:"Farine",qte:1000,u:"g",pa:0.90,qr:1000},{n:"Beurre ou margarine",qte:300,u:"g",pa:6.50,qr:1000},{n:"Sucre poudre",qte:500,u:"g",pa:1.20,qr:1000},{n:"Raisins Smyrne",qte:250,u:"g",pa:4.00,qr:1000},{n:"Fruits confits hachés",qte:200,u:"g",pa:6.00,qr:1000},{n:"Œufs",qte:10,u:"pcs",pa:2.40,qr:20},{n:"Carbonate d'ammoniaque",qte:17,u:"g",pa:2.00,qr:1000},{n:"Vanille",qte:2,u:"g",pa:1.50,qr:1000},{n:"Rhum",qte:30,u:"ml",pa:12.00,qr:1000}],
+        steps:["Travailler la margarine en pommade, ajouter œufs un à un, sucre, carbonate écrasé, parfum. Mélanger farine avec raisins et fruits confits, incorporer délicatement.","Garnir à moitié des moules à baba graissés et tapissés de papier. Cuire à four doux. Démouler aussitôt."],
+        equip:["Moules à baba","Papier"] }
+    ];
+
+    let dynamicData = [];
+
+    function initDynamic() {
+      return RECETTES.map(r => ({
+        portions: r.portions,
+        coeff: 3.5,
+        ingredients: r.ingredients.map(ing => ({ pa: ing.pa, qte: ing.qte }))
+      }));
+    }
+
+    function loadStorage() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length === RECETTES.length) {
+            dynamicData = parsed;
+            for (let i = 0; i < RECETTES.length; i++) {
+              if (dynamicData[i].portions) RECETTES[i].portions = dynamicData[i].portions;
+              if (dynamicData[i].coeff !== undefined) dynamicData[i].coeff = dynamicData[i].coeff;
+              const dynIngs = dynamicData[i].ingredients;
+              if (dynIngs && dynIngs.length === RECETTES[i].ingredients.length) {
+                for (let j = 0; j < RECETTES[i].ingredients.length; j++) {
+                  if (dynIngs[j].pa !== undefined) RECETTES[i].ingredients[j].pa = dynIngs[j].pa;
+                  if (dynIngs[j].qte !== undefined) RECETTES[i].ingredients[j].qte = dynIngs[j].qte;
+                }
+              }
+            }
+          } else dynamicData = initDynamic();
+        } else dynamicData = initDynamic();
+      } catch (e) { dynamicData = initDynamic(); }
+    }
+
+    function saveDynamic() {
+      const toStore = dynamicData.map((d, idx) => ({
+        portions: RECETTES[idx].portions,
+        coeff: d.coeff,
+        ingredients: RECETTES[idx].ingredients.map(ing => ({ pa: ing.pa, qte: ing.qte }))
+      }));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(toStore));
+    }
+
+    function getPU(ing) { return ing.pa / ing.qr; }
+    function getCout(ing) { return ing.qte * getPU(ing); }
+
+    function recalcFiche(idx) {
+      const rec = RECETTES[idx];
+      if (!rec.ingredients.length) {
+        document.getElementById(`ct-${idx}`).innerText = '0 €';
+        document.getElementById(`cp-${idx}`).innerText = '0 €';
+        document.getElementById(`cv-${idx}`).innerText = '0 €';
+        document.getElementById(`cm-${idx}`).innerText = '0%';
+        if (document.getElementById(`mb-${idx}`)) document.getElementById(`mb-${idx}`).style.width = '0%';
+        return;
+      }
+      const total = rec.ingredients.reduce((s, ing) => s + getCout(ing), 0);
+      const portions = rec.portions;
+      const costPerPortion = total / portions;
+      const coeff = dynamicData[idx].coeff;
+      const pv = costPerPortion * coeff;
+      const marge = pv > 0 ? ((pv - costPerPortion) / pv) * 100 : 0;
+      document.getElementById(`ct-${idx}`).innerText = total.toFixed(2) + ' €';
+      document.getElementById(`cp-${idx}`).innerText = costPerPortion.toFixed(2) + ' €';
+      document.getElementById(`cv-${idx}`).innerText = pv.toFixed(2) + ' € HT';
+      document.getElementById(`cm-${idx}`).innerText = marge.toFixed(1) + '%';
+      const bar = document.getElementById(`mb-${idx}`);
+      if (bar) bar.style.width = Math.min(100, Math.max(0, marge)) + '%';
+      document.getElementById(`pd-${idx}`).innerText = rec.portions;
+      rec.ingredients.forEach((ing, ipos) => {
+        const puSpan = document.getElementById(`pu-${idx}-${ipos}`);
+        if (puSpan) puSpan.innerText = getPU(ing).toFixed(4) + ' €';
+        const coSpan = document.getElementById(`co-${idx}-${ipos}`);
+        if (coSpan) coSpan.innerText = getCout(ing).toFixed(2) + ' €';
+        const qtyInp = document.getElementById(`qty-${idx}-${ipos}`);
+        if (qtyInp && qtyInp.value != ing.qte) qtyInp.value = ing.qte;
+      });
+    }
+
+    function escapeHtml(str) { return String(str).replace(/[&<>]/g, function(m) { if (m === '&') return '&amp;'; if (m === '<') return '&lt;'; if (m === '>') return '&gt;'; return m; }); }
+
+    function buildFiche(rec, idx) {
+      let diffClass = 'tag-teal';
+      if (rec.diff === 'Expert') diffClass = 'tag-coral';
+      else if (rec.diff === 'Difficile') diffClass = 'tag-amber';
+      else if (rec.diff === 'Facile') diffClass = 'tag-blue';
+      const ingRows = rec.ingredients.map((ing, i) => `
+        <tr>
+          <td style="font-weight:600">${escapeHtml(ing.n)}</td>
+          <td style="padding:3px;"><input type="number" class="ni qty" data-idx="${idx}" data-pos="${i}" value="${ing.qte}" step="any" style="width:75px;"></td>
+          <td>${escapeHtml(ing.u)}</td>
+          <td class="td-a"><input type="number" class="ni a" data-idx="${idx}" data-pos="${i}" value="${ing.pa.toFixed(2)}" step="0.01" min="0" style="width:70px;"></td>
+          <td id="pu-${idx}-${i}" style="text-align:right;">${getPU(ing).toFixed(4)} €</td>
+          <td id="co-${idx}-${i}" style="text-align:right;font-weight:600;">${getCout(ing).toFixed(2)} €</td>
+        </td>
+      `).join('');
+      const stepsHtml = rec.steps.map((s, i) => `<div class="step"><div class="snum">${i+1}</div><div><div class="stitle">${escapeHtml(s)}</div></div></div>`).join('');
+      const allergHtml = rec.allerg.map(a => `<span class="tag tag-red">⚠ ${escapeHtml(a)}</span>`).join('');
+      const equipHtml = rec.equip.map(e => `<span class="tag tag-gray">${escapeHtml(e)}</span>`).join('');
+      return `
+        <div class="fiche" id="f${idx}">
+          <div class="print-bar"><button class="btn-print" onclick="window.print()">🖨 Imprimer PDF</button></div>
+          <div class="fiche-header"><div style="display:flex; justify-content:space-between;"><div><div class="fiche-title">${rec.num} — ${escapeHtml(rec.nom)}</div><div class="fiche-source">p.${rec.page} · ${rec.sousTitre}</div><div class="tags"><span class="tag tag-blue">Pâtisserie</span><span class="tag ${diffClass}">${rec.diff}</span></div></div><div><div class="plbl">Portions</div><div class="pbig" id="pd-${idx}">${rec.portions}</div></div></div></div>
+          <div class="two-col"><div class="card"><div class="clabel">⏱ Temps</div><div class="ri"><span class="rl">Préparation</span><span class="rv">${rec.tprep}</span></div><div class="ri"><span class="rl">Cuisson</span><span class="rv">${rec.tcuisson}</span></div><div class="ri"><span class="rl">Façonnage</span><span class="rv">${rec.tmontage}</span></div></div><div class="card"><div class="clabel">💰 Coût & marge</div><div class="ri"><span class="rl">Coût total</span><span class="rv" id="ct-${idx}">—</span></div><div class="ri"><span class="rl">Coût / portion</span><span class="rv" id="cp-${idx}">—</span></div><div class="ri"><span class="rl">Prix vente HT</span><span class="rv" id="cv-${idx}">—</span></div><div class="ri"><span class="rl">Marge brute</span><span class="rv" id="cm-${idx}">—</span></div></div></div>
+          <div class="card"><div class="clabel">🥄 Ingrédients (Qté & prix modifiables)</div><table class="ingr-table"><thead><tr><th>Ingrédient</th><th>Qté</th><th>Unité</th><th>Prix achat (€)</th><th>Prix unit.</th><th>Coût total</th></tr></thead><tbody>${ingRows}</tbody></table>
+          <div style="margin-top:10px; display:flex; gap:1rem; flex-wrap:wrap;"><div><span class="plbl">Nb portions</span> <input type="number" id="port-${idx}" class="ni" value="${rec.portions}" min="1" style="width:70px;"></div><div><span class="plbl">Coef. vente</span> <input type="number" id="coeff-${idx}" class="ni" value="${dynamicData[idx].coeff}" step="0.1" min="1.2" style="width:65px;"></div><div style="flex:1"><div class="plbl">Marge réelle</div><div class="env-bar"><div id="mb-${idx}" style="height:100%; width:0%;"></div></div></div></div></div>
+          <div class="card"><div class="clabel">📋 Étapes</div>${stepsHtml}</div>
+          <div class="two-col"><div class="card"><div class="clabel">⚙️ Équipements</div><div class="tags-row">${equipHtml}</div></div><div class="card"><div class="clabel">⚠️ Allergènes</div><div class="tags-row">${allergHtml}</div></div></div>
+          <div class="card"><div class="clabel">🍽 Présentation</div><p style="font-size:12px;">${escapeHtml(rec.presentation)}</p></div>
+          <div class="card"><div class="clabel">🌱 Impact environnemental</div><div>Empreinte ${rec.envlbl}<div class="env-bar"><div class="env-fill" style="width:${Math.min(100, rec.env)}%;background:${rec.envcol};"></div></div>CO₂: ${rec.co2} · Eau: ${rec.eau}</div></div>
+          <div class="card"><div class="clabel">🍰 Nutrition (par portion)</div><div class="nut-grid"><div class="nc"><div class="nv">${rec.nut.kcal}</div><div class="nl">kcal</div></div><div class="nc"><div class="nv">${rec.nut.prot}g</div><div class="nl">prot.</div></div><div class="nc"><div class="nv">${rec.nut.lip}g</div><div class="nl">lip.</div></div><div class="nc"><div class="nv">${rec.nut.glu}g</div><div class="nl">gluc.</div></div></div></div>
+        </div>
+      `;
+    }
+
+    function bindEvents(idx) {
+      const portInput = document.getElementById(`port-${idx}`);
+      const coeffInput = document.getElementById(`coeff-${idx}`);
+      if (portInput) portInput.addEventListener('input', () => { RECETTES[idx].portions = Math.max(1, parseInt(portInput.value) || 1); dynamicData[idx].portions = RECETTES[idx].portions; document.getElementById(`pd-${idx}`).innerText = RECETTES[idx].portions; recalcFiche(idx); saveDynamic(); });
+      if (coeffInput) coeffInput.addEventListener('input', () => { dynamicData[idx].coeff = parseFloat(coeffInput.value) || 3.0; recalcFiche(idx); saveDynamic(); });
+      document.querySelectorAll(`.ni.qty[data-idx="${idx}"]`).forEach(inp => inp.addEventListener('input', () => { const pos = parseInt(inp.dataset.pos); const nv = parseFloat(inp.value); if (!isNaN(nv) && RECETTES[idx].ingredients[pos]) { RECETTES[idx].ingredients[pos].qte = nv; dynamicData[idx].ingredients[pos].qte = nv; recalcFiche(idx); saveDynamic(); } }));
+      document.querySelectorAll(`.ni.a[data-idx="${idx}"]`).forEach(inp => inp.addEventListener('input', () => { const pos = parseInt(inp.dataset.pos); const nv = parseFloat(inp.value); if (!isNaN(nv) && RECETTES[idx].ingredients[pos]) { RECETTES[idx].ingredients[pos].pa = nv; dynamicData[idx].ingredients[pos].pa = nv; recalcFiche(idx); saveDynamic(); } }));
+    }
+
+    function buildNavAndFiches() {
+      const navDiv = document.getElementById('nav');
+      const fichesDiv = document.getElementById('fiches');
+      navDiv.innerHTML = '';
+      fichesDiv.innerHTML = '';
+      RECETTES.forEach((rec, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'nav-btn' + (i === 0 ? ' active' : '');
+        btn.innerHTML = `<span class="nnum">${rec.num}</span><span class="nname">${escapeHtml(rec.nom.substring(0, 20))}</span>`;
+        btn.onclick = () => { document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.fiche').forEach(f => f.classList.remove('active')); document.getElementById(`f${i}`).classList.add('active'); };
+        navDiv.appendChild(btn);
+        fichesDiv.insertAdjacentHTML('beforeend', buildFiche(rec, i));
+      });
+      for (let i = 0; i < RECETTES.length; i++) { recalcFiche(i); bindEvents(i); }
+      document.getElementById('f0')?.classList.add('active');
+    }
+
+    loadStorage();
+    buildNavAndFiches();
+    saveDynamic();
+  })();
+</script>
+</body>
+</html>
